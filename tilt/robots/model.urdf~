@@ -275,191 +275,181 @@
 
 
 	
-  <gazebo>
-	    <plugin name="quadrotor_imu_sim" filename="libhector_gazebo_ros_imu.so">
-	      <updateRate>100.0</updateRate>
-	      <bodyName>corpo</bodyName>
-	      <frameId>corpo</frameId>
-	      <topicName>raw_imu</topicName>
-	      <rpyOffsets>0 0 0</rpyOffsets> 
-	      <gaussianNoise>0</gaussianNoise>  
-	      <accelDrift>0.5 0.5 0.5</accelDrift>
-	      <accelGaussianNoise>0.35 0.35 0.3</accelGaussianNoise>
-	      <rateDrift>0.1 0.1 0.1</rateDrift>
-	      <rateGaussianNoise>0.05 0.05 0.015</rateGaussianNoise>
-	    </plugin>
-
-	    <plugin name="quadrotor_baro_sim" filename="libhector_gazebo_ros_baro.so">
-	      <updateRate>10.0</updateRate>
-	      <bodyName>corpo</bodyName>
-	      <frameId>corpo</frameId>
-	      <topicName>pressure_height</topicName>
-	      <altimeterTopicName>altimeter</altimeterTopicName>
-	      <offset>0</offset>
-	      <drift>10.0</drift>
-	      <gaussianNoise>0.1</gaussianNoise>
-	    </plugin>
-
-	    <plugin name="quadrotor_magnetic_sim" filename="libhector_gazebo_ros_magnetic.so">
-	      <updateRate>10.0</updateRate>
-	      <bodyName>corpo</bodyName>
-	      <frameId>corpo</frameId>
-	      <topicName>magnetic</topicName>
-	      <offset>0 0 0</offset>
-	      <drift>0.0 0.0 0.0</drift>
-	      <gaussianNoise>1.3e-2 1.3e-2 1.3e-2</gaussianNoise>
-	    </plugin>
-
-	    <plugin name="quadrotor_gps_sim" filename="libhector_gazebo_ros_gps.so">
-	      <updateRate>4.0</updateRate>
-	      <bodyName>corpo</bodyName>
-	      <frameId>corpo</frameId>
-	      <topicName>gps</topicName>
-	      <velocityTopicName>fix_velocity</velocityTopicName>
-	      <referenceLatitude>0</referenceLatitude>
-	      <referenceLongitude>0</referenceLongitude>
-	      <drift>5.0 5.0 5.0</drift>
-	      <gaussianNoise>0.01 0.01 0.01</gaussianNoise>
-	      <velocityDrift>0 0 0</velocityDrift>
-	      <velocityGaussianNoise>0.05 0.05 0.05</velocityGaussianNoise>
-	    </plugin>
-
-	    <plugin name="quadrotor_groundtruth_sim" filename="libgazebo_ros_p3d.so">
-	      <updateRate>100.0</updateRate>
-	      <bodyName>corpo</bodyName>
-	      <topicName>ground_truth/state</topicName>
-	      <gaussianNoise>0.0</gaussianNoise>
-	      <frameName>world</frameName>
-	    </plugin>
-	</gazebo>
-
-    <link name="ultrassom_link">
-      <inertial>
-        <mass value="0.001" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <inertia ixx="0.000000017" ixy="0" ixz="0" iyy="0.000000017" iyz="0" izz="0.000000017" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://hector_sensors_description/meshes/sonar_sensor/max_sonar_ez4.dae"/>
-        </geometry>
-      </visual>
-    </link>
-
-    <joint name="ultrassom_joint" type="fixed">
-      <origin xyz="0 0 -0.12" rpy="0 1.57 0" />
-      <parent link="corpo"/>
-      <child link="ultrassom_link"/>
-    </joint>
-
-    <gazebo reference="ultrassom_link">
-      <sensor type="ray" name="ultrassom">
-        <always_on>true</always_on>
-        <update_rate>100</update_rate>
-        <pose>0 0 0 0 0 0</pose>
-        <visualize>false</visualize>
-        <ray>
-          <scan>
-            <horizontal>
-              <samples>100</samples>
-              <resolution>1</resolution>
-              <min_angle>-1</min_angle>
-              <max_angle> 1</max_angle>
-            </horizontal>
-            <vertical>
-              <samples>100</samples>
-              <resolution>1</resolution>
-              <min_angle>-1</min_angle>
-              <max_angle> 1</max_angle>
-            </vertical>
-          </scan>
-          <range>
-            <min>10</min>
-            <max>50</max>
-            <resolution>0.01</resolution>
-          </range>
-        </ray>
-	
-
-        <plugin name="gazebo_ros_ultrassom_controller" filename="libhector_gazebo_ros_sonar.so">
-          <gaussianNoise>0.005</gaussianNoise>
-          <topicName>ultrassom</topicName>
-          <frameId>ultrassom_link</frameId>
-        </plugin>
-      </sensor>
-
-	</gazebo>
-
- <gazebo>
-    
-	<plugin name="thrustleftteste" filename="libservo_motor_plugin.so">
-	<NameOfNode> Teste </NameOfNode>	
-	<NameOfJoint> thrustesq </NameOfJoint>
-	<TopicSubscriber> RefThrustesq </TopicSubscriber>
-	<TopicPublisher>  SensorThrustesq </TopicPublisher>
-	<Kpx> 0.01 </Kpx>
-	<Kpv> 0.01 </Kpv>
-	<Kix> 0.01 </Kix>
-	<Kiv> 0.01 </Kiv>
-	<Kdx> 0.01 </Kdx>
-	<Kdv> 0.01 </Kdv>
-	<Modo> Velocidade </Modo>
-	</plugin>
-
-	<plugin name="thrustrightteste" filename="libservo_motor_plugin.so">
-	<NameOfNode> Teste2 </NameOfNode>
-	<NameOfJoint> thrustdir </NameOfJoint>
-	<TopicSubscriber> RefThrustdir </TopicSubscriber>
-	<TopicPublisher> SensorThrustdir </TopicPublisher>
-	<Kpx> 0.01 </Kpx>
-	<Kpv> 0.01 </Kpv>
-	<Kix> 0.01 </Kix>
-	<Kiv> 0.01 </Kiv>
-	<Kdx> 0.01 </Kdx>
-	<Kdv> 0.01 </Kdv>
-	<Modo> Velocidade </Modo>
-	</plugin>
-
-	<plugin name="aLteste" filename="libservo_motor_plugin.so">
-	<NameOfNode> Teste3 </NameOfNode>	
-	<NameOfJoint> aL </NameOfJoint>
-	<TopicSubscriber> RefaL </TopicSubscriber>
-	<TopicPublisher>  SensoraL </TopicPublisher>
-	<Kpx> 4 </Kpx>
-	<Kpv> 0.01 </Kpv>
-	<Kix> 0 </Kix>
-	<Kiv> 0 </Kiv>
-	<Kdx> 0.01 </Kdx>
-	<Kdv> 0.01 </Kdv>
-	<Modo> Posição </Modo>
-	</plugin>
-
-	<plugin name="aRteste" filename="libservo_motor_plugin.so">
-	<NameOfNode> Teste4 </NameOfNode>	
-	<NameOfJoint> aR </NameOfJoint>
-	<TopicSubscriber> RefaR </TopicSubscriber>
-	<TopicPublisher>  SensoraR </TopicPublisher>
-	<Kpx> 4 </Kpx>
-	<Kpv> 0.01 </Kpv>
-	<Kix> 0 </Kix>
-	<Kiv> 0 </Kiv>
-	<Kdx> 0.01 </Kdx>
-	<Kdv> 0.01 </Kdv>
-	<Modo> Posição </Modo>
-	</plugin>
+  	<gazebo>
+	    	<plugin name="quadrotor_imu_sim" filename="libhector_gazebo_ros_imu.so">
+	      		<updateRate>100.0</updateRate>
+	      		<bodyName>corpo</bodyName>
+	      		<frameId>corpo</frameId>
+	      		<topicName>raw_imu</topicName>
+	      		<rpyOffsets>0 0 0</rpyOffsets> 
+	      		<gaussianNoise>0</gaussianNoise>  
+	      		<accelDrift>0.5 0.5 0.5</accelDrift>
+	      		<accelGaussianNoise>0.35 0.35 0.3</accelGaussianNoise>
+	      		<rateDrift>0.1 0.1 0.1</rateDrift>
+	      		<rateGaussianNoise>0.05 0.05 0.015</rateGaussianNoise>
+	    	</plugin>
 	</gazebo>
 
 	<gazebo>
-	<plugin name="propeller_direito" filename="libaerodinamica_plugin.so">
-	<ka> 1 </ka>
-	<kb> 1 </kb>
-	<topic_VR> /Teste2/SensorThrustdir </topic_VR>
-	<topic_VL> /Teste/SensorThrustesq </topic_VL>
-	<NameOfNode> propeller_direito </NameOfNode>
-	<LinkDir> helicedir </LinkDir>
-	<LinkEsq> heliceesq </LinkEsq>					
-    	</plugin>
+		<plugin name="quadrotor_magnetic_sim" filename="libhector_gazebo_ros_magnetic.so">
+	      		<updateRate>10.0</updateRate>
+	      		<bodyName>corpo</bodyName>
+	      		<frameId>corpo</frameId>
+	      		<topicName>magnetic</topicName>
+	      		<offset>0 0 0</offset>
+	      		<drift>0.0 0.0 0.0</drift>
+	      		<gaussianNoise>1.3e-2 1.3e-2 1.3e-2</gaussianNoise>
+		</plugin>
+	</gazebo>
+
+	<gazebo>
+		<plugin name="quadrotor_gps_sim" filename="libhector_gazebo_ros_gps.so">
+	      		<updateRate>4.0</updateRate>
+	      		<bodyName>corpo</bodyName>
+	      		<frameId>corpo</frameId>
+	      		<topicName>gps</topicName>
+	      		<velocityTopicName>fix_velocity</velocityTopicName>
+	      		<referenceLatitude>0</referenceLatitude>
+	      		<referenceLongitude>0</referenceLongitude>
+	      		<drift>5.0 5.0 5.0</drift>
+	      		<gaussianNoise>0.01 0.01 0.01</gaussianNoise>
+	      		<velocityDrift>0 0 0</velocityDrift>
+	      		<velocityGaussianNoise>0.05 0.05 0.05</velocityGaussianNoise>
+		</plugin>
+	</gazebo>
+
+    	<link name="ultrassom_link">
+      		<inertial>
+        		<mass value="0.001" />
+        		<origin xyz="0 0 0" rpy="0 0 0" />
+        		<inertia ixx="0.000000017" ixy="0" ixz="0" iyy="0.000000017" iyz="0" izz="0.000000017" />
+      		</inertial>
+      		<visual>
+        		<origin xyz="0 0 0" rpy="0 0 0" />
+        		<geometry>
+          			<mesh filename="package://hector_sensors_description/meshes/sonar_sensor/max_sonar_ez4.dae"/>
+        		</geometry>
+      		</visual>
+    	</link>
+
+    	<joint name="ultrassom_joint" type="fixed">
+      		<origin xyz="0 0 -0.12" rpy="0 1.57 0" />
+      		<parent link="corpo"/>
+      		<child link="ultrassom_link"/>
+    	</joint>
+
+    	<gazebo reference="ultrassom_link">
+      		<sensor type="ray" name="ultrassom">
+        		<always_on>true</always_on>
+        		<update_rate>100</update_rate>
+        		<pose>0 0 0 0 0 0</pose>
+        		<visualize>false</visualize>
+        		<ray>
+          			<scan>
+            				<horizontal>
+              					<samples>100</samples>
+              					<resolution>1</resolution>
+              					<min_angle>-1</min_angle>
+              					<max_angle> 1</max_angle>
+            				</horizontal>
+            				<vertical>
+              					<samples>100</samples>
+              					<resolution>1</resolution>
+              					<min_angle>-1</min_angle>
+              					<max_angle> 1</max_angle>
+            				</vertical>
+          			</scan>
+         			<range>
+            				<min>10</min>
+            				<max>50</max>
+            				<resolution>0.01</resolution>
+          			</range>
+        		</ray>
+	
+
+        	<plugin name="gazebo_ros_ultrassom_controller" filename="libhector_gazebo_ros_sonar.so">
+          		<gaussianNoise>0.005</gaussianNoise>
+          		<topicName>ultrassom</topicName>
+          		<frameId>ultrassom_link</frameId>
+        	</plugin>
+      		</sensor>
+
+	</gazebo>
+
+ 	<gazebo>
+		<plugin name="thrustleftteste" filename="libservo_motor_plugin.so">
+			<NameOfNode> Teste </NameOfNode>	
+			<NameOfJoint> thrustesq </NameOfJoint>
+			<TopicSubscriber> RefThrustesq </TopicSubscriber>
+			<TopicPublisher>  SensorThrustesq </TopicPublisher>
+			<Kpx> 0.01 </Kpx>
+			<Kpv> 0.01 </Kpv>
+			<Kix> 0.01 </Kix>
+			<Kiv> 0.01 </Kiv>
+			<Kdx> 0.01 </Kdx>
+			<Kdv> 0.01 </Kdv>
+			<Modo> Velocidade </Modo>
+		</plugin>
+	</gazebo>	
+
+	<gazebo>
+		<plugin name="thrustrightteste" filename="libservo_motor_plugin.so">
+			<NameOfNode> Teste2 </NameOfNode>
+			<NameOfJoint> thrustdir </NameOfJoint>
+			<TopicSubscriber> RefThrustdir </TopicSubscriber>
+			<TopicPublisher> SensorThrustdir </TopicPublisher>
+			<Kpx> 0.01 </Kpx>
+			<Kpv> 0.01 </Kpv>
+			<Kix> 0.01 </Kix>
+			<Kiv> 0.01 </Kiv>
+			<Kdx> 0.01 </Kdx>
+			<Kdv> 0.01 </Kdv>
+			<Modo> Velocidade </Modo>
+		</plugin>
+	</gazebo>
+
+	<gazebo>
+		<plugin name="aLteste" filename="libservo_motor_plugin.so">
+			<NameOfNode> Teste3 </NameOfNode>	
+			<NameOfJoint> aL </NameOfJoint>
+			<TopicSubscriber> RefaL </TopicSubscriber>
+			<TopicPublisher>  SensoraL </TopicPublisher>
+			<Kpx> 4 </Kpx>
+			<Kpv> 0.01 </Kpv>
+			<Kix> 0 </Kix>
+			<Kiv> 0 </Kiv>
+			<Kdx> 0.01 </Kdx>
+			<Kdv> 0.01 </Kdv>
+			<Modo> Posição </Modo>
+		</plugin>
+	</gazebo>	
+
+	<gazebo>
+		<plugin name="aRteste" filename="libservo_motor_plugin.so">
+			<NameOfNode> Teste4 </NameOfNode>	
+			<NameOfJoint> aR </NameOfJoint>
+			<TopicSubscriber> RefaR </TopicSubscriber>
+			<TopicPublisher>  SensoraR </TopicPublisher>
+			<Kpx> 4 </Kpx>
+			<Kpv> 0.01 </Kpv>
+			<Kix> 0 </Kix>
+			<Kiv> 0 </Kiv>
+			<Kdx> 0.01 </Kdx>
+			<Kdv> 0.01 </Kdv>
+			<Modo> Posição </Modo>
+		</plugin>
+	</gazebo>
+
+	<gazebo>
+		<plugin name="propeller_direito" filename="libaerodinamica_plugin.so">
+			<ka> 1 </ka>
+			<kb> 1 </kb>
+			<topic_VR> /Teste2/SensorThrustdir </topic_VR>
+			<topic_VL> /Teste/SensorThrustesq </topic_VL>
+			<NameOfNode> propeller_direito </NameOfNode>
+			<LinkDir> helicedir </LinkDir>
+			<LinkEsq> heliceesq </LinkEsq>					
+    		</plugin>
 	</gazebo>
 
 </robot>

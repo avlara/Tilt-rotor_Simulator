@@ -33,55 +33,71 @@
 
 #include <ros/ros.h>
 #include <geometry_msgs/Vector3Stamped.h>
+#include "tilt_srv/Vector3Stamped_srv.h"
 #include <hector_gazebo_plugins/sensor_model.h>
 #include <hector_gazebo_plugins/update_timer.h>
-
 #include <dynamic_reconfigure/server.h>
+
+#include <ros/package.h>
+#include <log4cxx/logger.h>
+#include <log4cxx/xml/domconfigurator.h>
+
+using namespace log4cxx;
+using namespace log4cxx::xml;
+using namespace log4cxx::helpers;
+
 
 namespace gazebo
 {
+	LoggerPtr loggerMyMain(Logger::getLogger( "main"));
+	
+	class GazeboRosMagnetic : public ModelPlugin
+	{
+		public:
+  			GazeboRosMagnetic();
+  			virtual ~GazeboRosMagnetic();
 
-class GazeboRosMagnetic : public ModelPlugin
-{
-public:
-  GazeboRosMagnetic();
-  virtual ~GazeboRosMagnetic();
+		protected:
+  			virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf);
+  			virtual void Reset();
+  			virtual void Update();
 
-protected:
-  virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf);
-  virtual void Reset();
-  virtual void Update();
+		private:
+			std::string path;
+	  		/// \brief The parent World
+	  		physics::WorldPtr world;
 
-private:
-  /// \brief The parent World
-  physics::WorldPtr world;
+	  		/// \brief The link referred to by this plugin
+	  		physics::LinkPtr link;
 
-  /// \brief The link referred to by this plugin
-  physics::LinkPtr link;
+	  		ros::NodeHandle* node_handle_;
+	  		ros::Publisher publisher_;
 
-  ros::NodeHandle* node_handle_;
-  ros::Publisher publisher_;
+	  		geometry_msgs::Vector3Stamped magnetic_field_;
+	  		gazebo::math::Vector3 magnetic_field_world_;
 
-  geometry_msgs::Vector3Stamped magnetic_field_;
-  gazebo::math::Vector3 magnetic_field_world_;
+	  		std::string namespace_;
+	  		std::string topic_;
+	  		std::string link_name_;
+	  		std::string frame_id_;
 
-  std::string namespace_;
-  std::string topic_;
-  std::string link_name_;
-  std::string frame_id_;
+	  		double magnitude_;
+	  		double reference_heading_;
+	  		double declination_;
+	  		double inclination_;
 
-  double magnitude_;
-  double reference_heading_;
-  double declination_;
-  double inclination_;
+	  		SensorModel3 sensor_model_;
 
-  SensorModel3 sensor_model_;
+	  		UpdateTimer updateTimer;
+	  		event::ConnectionPtr updateConnection;
 
-  UpdateTimer updateTimer;
-  event::ConnectionPtr updateConnection;
+	  		boost::shared_ptr<dynamic_reconfigure::Server<SensorModelConfig> > dynamic_reconfigure_server_;
+			boost::mutex lock;
 
-  boost::shared_ptr<dynamic_reconfigure::Server<SensorModelConfig> > dynamic_reconfigure_server_;
-};
+			bool ValuesOfMagnetic(tilt_srv::Vector3Stamped_srv::Request &req, tilt_srv::Vector3Stamped_srv::Response &res);
+			ros::ServiceServer DataMagneticServiceBias;
+
+	};
 
 } // namespace gazebo
 

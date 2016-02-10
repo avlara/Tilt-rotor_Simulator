@@ -33,126 +33,181 @@
 
 #include <limits>
 
-namespace gazebo {
-
-GazeboRosSonar::GazeboRosSonar()
+namespace gazebo 
 {
-}
+
+	GazeboRosSonar::GazeboRosSonar()
+	{
+		try
+		{
+			path = ros::package::getPath("hector_gazebo_plugins");
+			DOMConfigurator::configure(path+"/LogConfig/Log4cxxConfig_sonar.xml");
+		}
+		catch(std::exception& e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Destructor
-GazeboRosSonar::~GazeboRosSonar()
-{
-  updateTimer.Disconnect(updateConnection);
-  sensor_->SetActive(false);
-
-  dynamic_reconfigure_server_.reset();
-
-  node_handle_->shutdown();
-  delete node_handle_;
-}
+	GazeboRosSonar::~GazeboRosSonar()
+	{
+		try
+		{
+	  		updateTimer.Disconnect(updateConnection);
+	  		sensor_->SetActive(false);
+	  		dynamic_reconfigure_server_.reset();
+	  		node_handle_->shutdown();
+	  		delete node_handle_;
+		}
+		catch(std::exception& e)
+		{
+			LOG4CXX_ERROR (loggerMyMain, e.what());
+		}
+	}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Load the controller
-void GazeboRosSonar::Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf)
-{
-  // Get then name of the parent sensor
-  sensor_ = boost::dynamic_pointer_cast<sensors::RaySensor>(_sensor);
-  if (!sensor_)
-  {
-    gzthrow("GazeboRosSonar requires a Ray Sensor as its parent");
-    return;
-  }
+	void GazeboRosSonar::Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf)
+	{
+		try
+		{
+		  	// Get then name of the parent sensor
+		  	sensor_ = boost::dynamic_pointer_cast<sensors::RaySensor>(_sensor);
+		  	if (!sensor_)
+		  	{
+		    		gzthrow("GazeboRosSonar requires a Ray Sensor as its parent");
+		    		return;
+		  	}
 
-  // Get the world name.
-  std::string worldName = sensor_->GetWorldName();
-  world = physics::get_world(worldName);
+		  	// Get the world name.
+		  	std::string worldName = sensor_->GetWorldName();
+		  	world = physics::get_world(worldName);
 
-  // default parameters
-  namespace_.clear();
-  topic_ = "sonar";
-  frame_id_ = "/sonar_link";
+		  	// default parameters
+		  	namespace_.clear();
+		  	topic_ = "sonar";
+		  	frame_id_ = "/sonar_link";
 
-  // load parameters
-  if (_sdf->HasElement("robotNamespace"))
-    namespace_ = _sdf->GetElement("robotNamespace")->GetValue()->GetAsString();
+		  	// load parameters
+		  	if (_sdf->HasElement("robotNamespace")) namespace_ = _sdf->GetElement("robotNamespace")->GetValue()->GetAsString();
+			if (_sdf->HasElement("frameId")) frame_id_ = _sdf->GetElement("frameId")->GetValue()->GetAsString();
+		  	if (_sdf->HasElement("topicName")) topic_ = _sdf->GetElement("topicName")->GetValue()->GetAsString();
 
-  if (_sdf->HasElement("frameId"))
-    frame_id_ = _sdf->GetElement("frameId")->GetValue()->GetAsString();
+		  	sensor_model_.Load(_sdf);
 
-  if (_sdf->HasElement("topicName"))
-    topic_ = _sdf->GetElement("topicName")->GetValue()->GetAsString();
+		  	range_.header.frame_id = frame_id_;
+		  	range_.radiation_type = sensor_msgs::Range::ULTRASOUND;
+		  	range_.field_of_view = std::min(fabs((sensor_->GetAngleMax() - sensor_->GetAngleMin()).Radian()), fabs((sensor_->GetVerticalAngleMax() - sensor_->GetVerticalAngleMin()).Radian()));
+		  	range_.max_range = sensor_->GetRangeMax();
+		  	range_.min_range = sensor_->GetRangeMin();
 
-  sensor_model_.Load(_sdf);
+		  	// Make sure the ROS node for Gazebo has already been initialized
+		  	if (!ros::isInitialized())
+		 	{
+				LOG4CXX_ERROR (loggerMyMain,"A ROS node for Gazebo has not been initialized, unable to load plugin. Load the Gazebo system plugin 'libgazebo_ros_api_plugin.so' in the gazebo_ros package)");
+		   		return;
+		  	}
 
-  range_.header.frame_id = frame_id_;
-  range_.radiation_type = sensor_msgs::Range::ULTRASOUND;
-  range_.field_of_view = std::min(fabs((sensor_->GetAngleMax() - sensor_->GetAngleMin()).Radian()), fabs((sensor_->GetVerticalAngleMax() - sensor_->GetVerticalAngleMin()).Radian()));
-  range_.max_range = sensor_->GetRangeMax();
-  range_.min_range = sensor_->GetRangeMin();
+		  	node_handle_ = new ros::NodeHandle(namespace_);
+		  	publisher_ = node_handle_->advertise<sensor_msgs::Range>(topic_, 1);
 
-  // Make sure the ROS node for Gazebo has already been initialized
-  if (!ros::isInitialized())
-  {
-    ROS_FATAL_STREAM("A ROS node for Gazebo has not been initialized, unable to load plugin. "
-      << "Load the Gazebo system plugin 'libgazebo_ros_api_plugin.so' in the gazebo_ros package)");
-    return;
-  }
+			DataSonarService = node_handle_->advertiseService("ValoresSonar",&GazeboRosSonar::ValuesOfSonar,this);
 
-  node_handle_ = new ros::NodeHandle(namespace_);
-  publisher_ = node_handle_->advertise<sensor_msgs::Range>(topic_, 1);
+		  	// setup dynamic_reconfigure server
+		  	dynamic_reconfigure_server_.reset(new dynamic_reconfigure::Server<SensorModelConfig>(ros::NodeHandle(*node_handle_, topic_)));
+		  	dynamic_reconfigure_server_->setCallback(boost::bind(&SensorModel::dynamicReconfigureCallback, &sensor_model_, _1, _2));
 
-  // setup dynamic_reconfigure server
-  dynamic_reconfigure_server_.reset(new dynamic_reconfigure::Server<SensorModelConfig>(ros::NodeHandle(*node_handle_, topic_)));
-  dynamic_reconfigure_server_->setCallback(boost::bind(&SensorModel::dynamicReconfigureCallback, &sensor_model_, _1, _2));
+		  	Reset();
 
-  Reset();
+		  	// connect Update function
+		  	updateTimer.setUpdateRate(10.0);
+		  	updateTimer.Load(world, _sdf);
+		  	updateConnection = updateTimer.Connect(boost::bind(&GazeboRosSonar::Update, this));
 
-  // connect Update function
-  updateTimer.setUpdateRate(10.0);
-  updateTimer.Load(world, _sdf);
-  updateConnection = updateTimer.Connect(boost::bind(&GazeboRosSonar::Update, this));
+		  	// activate RaySensor
+		  	sensor_->SetActive(true);
+		}
+		catch(std::exception& e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
 
-  // activate RaySensor
-  sensor_->SetActive(true);
-}
-
-void GazeboRosSonar::Reset()
-{
-  updateTimer.Reset();
-  sensor_model_.reset();
-}
+	void GazeboRosSonar::Reset()
+	{
+		try
+		{
+	  		updateTimer.Reset();
+	  		sensor_model_.reset();
+		}
+		catch(std::exception& e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
 
 ////////////////////////////////////////////////////////////////////////////////
 // Update the controller
-void GazeboRosSonar::Update()
-{
-  common::Time sim_time = world->GetSimTime();
-  double dt = updateTimer.getTimeSinceLastUpdate().Double();
+	void GazeboRosSonar::Update()
+	{
+		try
+		{
+			boost::mutex::scoped_lock scoped_lock(lock);
+		  	common::Time sim_time = world->GetSimTime();
+		  	double dt = updateTimer.getTimeSinceLastUpdate().Double();
 
-  // activate RaySensor if it is not yet active
-  if (!sensor_->IsActive()) sensor_->SetActive(true);
+		  	// activate RaySensor if it is not yet active
+		  	if (!sensor_->IsActive()) sensor_->SetActive(true);
 
-  range_.header.stamp.sec  = (world->GetSimTime()).sec;
-  range_.header.stamp.nsec = (world->GetSimTime()).nsec;
+		  	range_.header.stamp.sec  = (world->GetSimTime()).sec;
+		  	range_.header.stamp.nsec = (world->GetSimTime()).nsec;
 
-  // find ray with minimal range
-  range_.range = std::numeric_limits<sensor_msgs::Range::_range_type>::max();
-  int num_ranges = sensor_->GetLaserShape()->GetSampleCount() * sensor_->GetLaserShape()->GetVerticalSampleCount();
-  for(int i = 0; i < num_ranges; ++i) {
-    double ray = sensor_->GetLaserShape()->GetRange(i);
-    if (ray < range_.range) range_.range = ray;
-  }
+		  	// find ray with minimal range
+		  	range_.range = std::numeric_limits<sensor_msgs::Range::_range_type>::max();
+		  	int num_ranges = sensor_->GetLaserShape()->GetSampleCount() * sensor_->GetLaserShape()->GetVerticalSampleCount();
+		  	for(int i = 0; i < num_ranges; ++i) 
+			{
+		    		double ray = sensor_->GetLaserShape()->GetRange(i);
+		    		if (ray < range_.range) range_.range = ray;
+		  	}
 
-  // add Gaussian noise (and limit to min/max range)
-  if (range_.range < range_.max_range) {
-    range_.range = sensor_model_(range_.range, dt);
-    if (range_.range < range_.min_range) range_.range = range_.min_range;
-    if (range_.range > range_.max_range) range_.range = range_.max_range;
-  }
+		  	// add Gaussian noise (and limit to min/max range)
+		  	if (range_.range < range_.max_range) 
+			{
+		    		range_.range = sensor_model_(range_.range, dt);
+		    		if (range_.range < range_.min_range) range_.range = range_.min_range;
+		    		if (range_.range > range_.max_range) range_.range = range_.max_range;
+		  	}
 
-  publisher_.publish(range_);
-}
+		  	publisher_.publish(range_);
+		}
+		catch(std::exception& e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
+
+	bool GazeboRosSonar::ValuesOfSonar(tilt_srv::Range_srv::Request &req, tilt_srv::Range_srv::Response &res)
+	{
+		try
+		{
+			boost::mutex::scoped_lock scoped_lock(lock);
+			res.header = range_.header;
+			res.radiation_type = range_.radiation_type;
+			res.field_of_view = range_.field_of_view;
+			res.min_range = range_.min_range;
+			res.max_range = range_.max_range;
+			res.range = range_.range;
+			return true;
+		}
+		catch(std::exception& e)
+		{
+			std::cout << e.what() << std::endl;
+			return false;
+		}
+	}
 
 // Register this plugin with the simulator
 GZ_REGISTER_SENSOR_PLUGIN(GazeboRosSonar)

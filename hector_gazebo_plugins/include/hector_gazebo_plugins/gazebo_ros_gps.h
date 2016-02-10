@@ -30,70 +30,78 @@
 #define HECTOR_GAZEBO_PLUGINS_GAZEBO_ROS_GPS_H
 
 #include <gazebo/common/Plugin.hh>
-
 #include <ros/ros.h>
 #include <sensor_msgs/NavSatFix.h>
 #include <geometry_msgs/Vector3Stamped.h>
 #include <hector_gazebo_plugins/sensor_model.h>
 #include <hector_gazebo_plugins/update_timer.h>
-
 #include <dynamic_reconfigure/server.h>
 #include <hector_gazebo_plugins/GNSSConfig.h>
+#include "tilt_srv/NavSatFix_srv.h"
+#include "tilt_srv/Vector3Stamped_srv.h"
+#include <ros/package.h>
+#include <log4cxx/logger.h>
+#include <log4cxx/xml/domconfigurator.h>
+
+using namespace log4cxx;
+using namespace log4cxx::xml;
+using namespace log4cxx::helpers;
 
 namespace gazebo
 {
 
-class GazeboRosGps : public ModelPlugin
-{
-public:
-  GazeboRosGps();
-  virtual ~GazeboRosGps();
+	LoggerPtr loggerMyMain(Logger::getLogger( "main"));
 
-protected:
-  virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf);
-  virtual void Reset();
-  virtual void Update();
+	class GazeboRosGps : public ModelPlugin
+	{
+		public:
+  			GazeboRosGps();
+  			virtual ~GazeboRosGps();
 
-  typedef hector_gazebo_plugins::GNSSConfig GNSSConfig;
-  void dynamicReconfigureCallback(GNSSConfig &config, uint32_t level);
+		protected:
+  			virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf);
+  			virtual void Reset();
+  			virtual void Update();
 
-private:
-  /// \brief The parent World
-  physics::WorldPtr world;
+  			typedef hector_gazebo_plugins::GNSSConfig GNSSConfig;
+  			void dynamicReconfigureCallback(GNSSConfig &config, uint32_t level);
 
-  /// \brief The link referred to by this plugin
-  physics::LinkPtr link;
+		private:
+			std::string path;
+  			/// \brief The parent World
+  			physics::WorldPtr world;
+  			/// \brief The link referred to by this plugin
+  			physics::LinkPtr link;
+  			ros::NodeHandle* node_handle_;
+  			ros::Publisher fix_publisher_;
+  			ros::Publisher velocity_publisher_;
+  			sensor_msgs::NavSatFix fix_;
+  			geometry_msgs::Vector3Stamped velocity_;
+  			std::string namespace_;
+  			std::string link_name_;
+  			std::string frame_id_;
+  			std::string fix_topic_;
+  			std::string velocity_topic_;
+  			double reference_latitude_;
+  			double reference_longitude_;
+  			double reference_heading_;
+  			double reference_altitude_;
+  			double radius_north_;
+  			double radius_east_;
+  			SensorModel3 position_error_model_;
+  			SensorModel3 velocity_error_model_;
+  			UpdateTimer updateTimer;
+  			event::ConnectionPtr updateConnection;
+  			boost::shared_ptr<dynamic_reconfigure::Server<SensorModelConfig> > dynamic_reconfigure_server_position_, dynamic_reconfigure_server_velocity_;
+  			boost::shared_ptr<dynamic_reconfigure::Server<GNSSConfig> > dynamic_reconfigure_server_status_;
 
-  ros::NodeHandle* node_handle_;
-  ros::Publisher fix_publisher_;
-  ros::Publisher velocity_publisher_;
+			bool ValuesFixOfGPS(tilt_srv::NavSatFix_srv::Request &req, tilt_srv::NavSatFix_srv::Response &res);
+			ros::ServiceServer DataFixGPSService;
+			bool ValuesVelocityOfGPS(tilt_srv::Vector3Stamped_srv::Request &req, tilt_srv::Vector3Stamped_srv::Response &res);
+			ros::ServiceServer DataVelocityGPSService;
+			boost::mutex lock;
 
-  sensor_msgs::NavSatFix fix_;
-  geometry_msgs::Vector3Stamped velocity_;
-
-  std::string namespace_;
-  std::string link_name_;
-  std::string frame_id_;
-  std::string fix_topic_;
-  std::string velocity_topic_;
-
-  double reference_latitude_;
-  double reference_longitude_;
-  double reference_heading_;
-  double reference_altitude_;
-
-  double radius_north_;
-  double radius_east_;
-
-  SensorModel3 position_error_model_;
-  SensorModel3 velocity_error_model_;
-
-  UpdateTimer updateTimer;
-  event::ConnectionPtr updateConnection;
-
-  boost::shared_ptr<dynamic_reconfigure::Server<SensorModelConfig> > dynamic_reconfigure_server_position_, dynamic_reconfigure_server_velocity_;
-  boost::shared_ptr<dynamic_reconfigure::Server<GNSSConfig> > dynamic_reconfigure_server_status_;
-};
+	};
 
 } // namespace gazebo
 

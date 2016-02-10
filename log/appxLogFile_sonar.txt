@@ -1,0 +1,8 @@
+2016-02-10 12:47:20,849 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-02-10 13:33:32,308 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-02-10 14:37:50,770 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-02-10 15:14:11,004 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-02-10 15:15:04,667 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-02-10 15:22:29,573 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-02-10 15:44:49,296 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-02-10 16:05:19,660 INFO  gazebo - Physics dynamic reconfigure ready.

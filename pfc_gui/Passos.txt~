@@ -1,0 +1,7 @@
+
+1- criar um pacote
+2- digitar código 
+3- não preocupar com CMakeLists.txt
+4- compilar: catkin_make
+4- tornar script executável: chmod +x nome_do_arquivo.py
+5- Executar: rosrun pfc_gui nome_do_arquivo.py

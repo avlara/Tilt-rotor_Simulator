@@ -28,54 +28,63 @@
 
 #ifndef HECTOR_GAZEBO_PLUGINS_GAZEBO_ROS_SONAR_H
 #define HECTOR_GAZEBO_PLUGINS_GAZEBO_ROS_SONAR_H
-
 #include <gazebo/common/Plugin.hh>
-
 #include <ros/callback_queue.h>
 #include <ros/ros.h>
-
 #include <sensor_msgs/Range.h>
+#include <tilt_srv/Range_srv.h>
 #include <hector_gazebo_plugins/sensor_model.h>
 #include <hector_gazebo_plugins/update_timer.h>
-
 #include <dynamic_reconfigure/server.h>
+#include <ros/package.h>
+#include <log4cxx/logger.h>
+#include <log4cxx/xml/domconfigurator.h>
+
+using namespace log4cxx;
+using namespace log4cxx::xml;
+using namespace log4cxx::helpers;
 
 namespace gazebo
 {
+	LoggerPtr loggerMyMain(Logger::getLogger( "main"));
 
-class GazeboRosSonar : public SensorPlugin
-{
-public:
-  GazeboRosSonar();
-  virtual ~GazeboRosSonar();
+	class GazeboRosSonar : public SensorPlugin
+	{
+		public:
+  			GazeboRosSonar();
+  			virtual ~GazeboRosSonar();
 
-protected:
-  virtual void Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf);
-  virtual void Reset();
-  virtual void Update();
+		protected:
+  			virtual void Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf);
+  			virtual void Reset();
+  			virtual void Update();
 
-private:
-  /// \brief The parent World
-  physics::WorldPtr world;
+		private:
+			std::string path;
+  			/// \brief The parent World
+  			physics::WorldPtr world;
+  			sensors::RaySensorPtr sensor_;
 
-  sensors::RaySensorPtr sensor_;
+  			ros::NodeHandle* node_handle_;
+  			ros::Publisher publisher_;
 
-  ros::NodeHandle* node_handle_;
-  ros::Publisher publisher_;
+  			sensor_msgs::Range range_;
 
-  sensor_msgs::Range range_;
+  			std::string namespace_;
+  			std::string topic_;
+  			std::string frame_id_;
 
-  std::string namespace_;
-  std::string topic_;
-  std::string frame_id_;
+  			SensorModel sensor_model_;
 
-  SensorModel sensor_model_;
+  			UpdateTimer updateTimer;
+  			event::ConnectionPtr updateConnection;
 
-  UpdateTimer updateTimer;
-  event::ConnectionPtr updateConnection;
+  			boost::shared_ptr<dynamic_reconfigure::Server<SensorModelConfig> > dynamic_reconfigure_server_;
+  			boost::mutex lock;
 
-  boost::shared_ptr<dynamic_reconfigure::Server<SensorModelConfig> > dynamic_reconfigure_server_;
-};
+			bool ValuesOfSonar(tilt_srv::Range_srv::Request &req, tilt_srv::Range_srv::Response &res);
+			ros::ServiceServer DataSonarService;
+	};
 
 } // namespace gazebo
 
