@@ -441,6 +441,16 @@
 	</gazebo>
 
 	<gazebo>
+		<plugin name="AllDatateste" filename="libAllData_plugin.so">
+			<NameOfNode> Tilt </NameOfNode>	
+			<NameOfJointR> aR </NameOfJointR>
+			<NameOfJointL> aL </NameOfJointL>
+			<bodyName>corpo</bodyName>
+		</plugin>
+	</gazebo>
+
+
+	<!--<gazebo>
 		<plugin name="propeller_direito" filename="libaerodinamica_plugin.so">
 			<ka> 1 </ka>
 			<kb> 1 </kb>
@@ -450,6 +460,6 @@
 			<LinkDir> helicedir </LinkDir>
 			<LinkEsq> heliceesq </LinkEsq>					
     		</plugin>
-	</gazebo>
+	</gazebo>-->
 
 </robot>

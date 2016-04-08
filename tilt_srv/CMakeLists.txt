@@ -76,6 +76,7 @@ add_message_files(
    Vector3.msg
    Sensor.msg
    Ref.msg
+   States.msg
  )
 
 ## Generate services in the 'srv' folder

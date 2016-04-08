@@ -378,7 +378,7 @@
 
  	<gazebo>
 		<plugin name="thrustleftteste" filename="libservo_motor_plugin.so">
-			<NameOfNode> Teste </NameOfNode>	
+			<NameOfNode> Tilt </NameOfNode>	
 			<NameOfJoint> thrustesq </NameOfJoint>
 			<TopicSubscriber> RefThrustesq </TopicSubscriber>
 			<TopicPublisher>  SensorThrustesq </TopicPublisher>
@@ -394,7 +394,7 @@
 
 	<gazebo>
 		<plugin name="thrustrightteste" filename="libservo_motor_plugin.so">
-			<NameOfNode> Teste2 </NameOfNode>
+			<NameOfNode> Tilt </NameOfNode>
 			<NameOfJoint> thrustdir </NameOfJoint>
 			<TopicSubscriber> RefThrustdir </TopicSubscriber>
 			<TopicPublisher> SensorThrustdir </TopicPublisher>
@@ -410,7 +410,7 @@
 
 	<gazebo>
 		<plugin name="aLteste" filename="libservo_motor_plugin.so">
-			<NameOfNode> Teste3 </NameOfNode>	
+			<NameOfNode> Tilt </NameOfNode>	
 			<NameOfJoint> aL </NameOfJoint>
 			<TopicSubscriber> RefaL </TopicSubscriber>
 			<TopicPublisher>  SensoraL </TopicPublisher>
@@ -426,7 +426,7 @@
 
 	<gazebo>
 		<plugin name="aRteste" filename="libservo_motor_plugin.so">
-			<NameOfNode> Teste4 </NameOfNode>	
+			<NameOfNode> Tilt </NameOfNode>	
 			<NameOfJoint> aR </NameOfJoint>
 			<TopicSubscriber> RefaR </TopicSubscriber>
 			<TopicPublisher>  SensoraR </TopicPublisher>
@@ -441,15 +441,24 @@
 	</gazebo>
 
 	<gazebo>
+		<plugin name="AllDatateste" filename="libAllData_plugin.so">
+			<NameOfNode> Tilt </NameOfNode>	
+			<NameOfJoint> aR </NameOfJoint>
+			<bodyName>corpo</bodyName>
+		</plugin>
+	</gazebo>
+
+
+	<!--<gazebo>
 		<plugin name="propeller_direito" filename="libaerodinamica_plugin.so">
 			<ka> 1 </ka>
 			<kb> 1 </kb>
-			<topic_VR> /Teste2/SensorThrustdir </topic_VR>
-			<topic_VL> /Teste/SensorThrustesq </topic_VL>
+			<topic_VR> /Tilt/SensorThrustdir </topic_VR>
+			<topic_VL> /Tilt/SensorThrustesq </topic_VL>
 			<NameOfNode> propeller_direito </NameOfNode>
 			<LinkDir> helicedir </LinkDir>
 			<LinkEsq> heliceesq </LinkEsq>					
     		</plugin>
-	</gazebo>
+	</gazebo>-->
 
 </robot>

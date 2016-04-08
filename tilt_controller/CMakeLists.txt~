@@ -6,6 +6,7 @@ project(tilt_controller)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  tilt_srv
 )
 
 ## System dependencies are found with CMake's conventions
@@ -185,5 +186,5 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(tilt_controller src/maint.cpp)
+add_executable(tilt_controller src/main.cpp)
 target_link_libraries(tilt_controller ${catkin_LIBRARIES})

@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+<!--The real_time_update_rate controls the update rate of the physics engine. The product of real_time_update_rate and max_time_step determine the target real time factor, though for computationally demanding simulations, the target real-time update rate may not be achieved. If you set the real_time_update_rate to 10.0, with a max_step_size of 0.001, then your simulation will run in slow motion, at about 1% real time factor.
+
+http://sdformat.org/spec?elem=physics
+
+-->
+	
+    <physics type='ode'>
+  	<max_step_size>0.012000</max_step_size>
+  	<real_time_factor>0</real_time_factor>-->
+  	<!--<real_time_update_rate>100000.000000</real_time_update_rate>-->
+  	<gravity>0.000000 0.000000 -9.800000</gravity>
+    </physics>
+
+    <!-- reference to your plugin -->
+    <plugin name="gazebo_tutorials" filename="libtilt_world_plugin.so"/>
+  </world>
+</sdf>
