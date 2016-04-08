@@ -2,7 +2,11 @@
 
 namespace gazebo
 {
-        void ServoMotorPlugin::CallbackReferencias(tilt_srv::Ref msg){refvalue = msg.ref;}
+        void ServoMotorPlugin::CallbackReferencias(tilt_srv::Ref msg)
+	{
+		refvalue = msg.ref;
+		std::cout << refvalue<< std::endl;
+	}
 
 	float ServoMotorPlugin::position_controller(float r, float y)
 	{

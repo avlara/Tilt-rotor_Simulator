@@ -2,7 +2,11 @@
 
 namespace gazebo
 {
-        void ServoMotorPlugin::CallbackReferencias(tilt_srv::Ref msg){refvalue = msg.ref;}
+        void ServoMotorPlugin::CallbackReferencias(tilt_srv::Ref msg)
+	{
+		//refvalue = msg.ref;
+		//std::cout << refvalue<< std::endl;
+	}
 
 	float ServoMotorPlugin::position_controller(float r, float y)
 	{
@@ -153,7 +157,7 @@ namespace gazebo
 
 			motor_subscriber_ = node_handle_.subscribe(TopicSubscriber_, 1, &gazebo::ServoMotorPlugin::CallbackReferencias, this);
 			motor_publisher_ = node_handle_.advertise<tilt_srv::Sensor>(TopicPublisher_, 5);
-			DataMotorService = node_handle_.advertiseService(TopicPublisher_ + "ValoresMotores",&ServoMotorPlugin::ValuesOfMotor,this);
+			DataMotorService = node_handle_.advertiseService(TopicPublisher_ + "/ValoresMotores",&ServoMotorPlugin::ValuesOfMotor,this);
 	  		Reset();
 			updateTimer.Load(world, _sdf);
 	  		updateConnection = updateTimer.Connect(boost::bind(&ServoMotorPlugin::Update, this));

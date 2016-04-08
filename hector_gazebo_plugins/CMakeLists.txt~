@@ -67,6 +67,9 @@ target_link_libraries(servo_motor_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES}
 add_library(aerodinamica_plugin src/aerodinamica.cpp)
 target_link_libraries(aerodinamica_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
+add_library(tilt_world_plugin src/tilt_world_plugin.cpp)
+target_link_libraries(tilt_world_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
 install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
   FILES_MATCHING PATTERN "*.h"
@@ -74,7 +77,7 @@ install(DIRECTORY include/${PROJECT_NAME}/
 )
 
 install(TARGETS
-
+  aerodinamica_plugin
   hector_gazebo_reset_plugin
   hector_gazebo_ros_imu
   hector_gazebo_ros_magnetic
