@@ -1,0 +1,282 @@
+%implements s0_b0_bg82d_Outputs "C"
+
+%function Outputs(block, system) Output
+%<SLibCGIRAccessLocalVar(3, 0)> %% rtb_Zr2
+%<SLibCGIRAccessLocalVar(4, 0)> %% rtb_Zr1
+%<SLibCGIRAccessLocalVar(0, 0)> %% rtb_Xr
+%<SLibCGIRAccessLocalVar(1, 0)> %% rtb_Yr
+%<SLibCGIRAccessLocalVar(2, 0)> %% rtb_Zr
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+real_T currentTime;
+real_T tmp[20];
+real_T tmp_0[80];
+int32_T i;
+int32_T i_0;
+%closefile localVarDecl
+%assign tlcOutputsFcnOfS0B0 = OpaqueTLCBlockFcn("Outputs", 0, 0, 0, 2)
+%assign tlcOutputsFcnOfS0B1 = OpaqueTLCBlockFcn("Outputs", 0, 1, 0, 2)
+%assign tlcOutputsFcnOfS0B13 = OpaqueTLCBlockFcn("Outputs", 0, 13, 0, 2)
+%assign tlcOutputsFcnOfS0B14 = OpaqueTLCBlockFcn("Outputs", 0, 14, 0, 2)
+%assign tlcOutputsFcnOfS0B15 = OpaqueTLCBlockFcn("Outputs", 0, 15, 0, 2)
+%assign tlcOutputsFcnOfS0B16 = OpaqueTLCBlockFcn("Outputs", 0, 16, 0, 2)
+%assign tlcOutputsFcnOfS0B17 = OpaqueTLCBlockFcn("Outputs", 0, 17, 0, 2)
+%assign tlcOutputsFcnOfS0B18 = OpaqueTLCBlockFcn("Outputs", 0, 18, 0, 2)
+%assign tlcOutputsFcnOfS0B19 = OpaqueTLCBlockFcn("Outputs", 0, 19, 0, 2)
+%assign tlcOutputsFcnOfS0B20 = OpaqueTLCBlockFcn("Outputs", 0, 20, 0, 2)
+%assign tlcOutputsFcnOfS0B21 = OpaqueTLCBlockFcn("Outputs", 0, 21, 0, 2)
+%assign tlcOutputsFcnOfS0B22 = OpaqueTLCBlockFcn("Outputs", 0, 22, 0, 2)
+%assign tlcOutputsFcnOfS0B23 = OpaqueTLCBlockFcn("Outputs", 0, 23, 0, 2)
+%assign tlcOutputsFcnOfS0B24 = OpaqueTLCBlockFcn("Outputs", 0, 24, 0, 2)
+%assign tlcOutputsFcnOfS0B25 = OpaqueTLCBlockFcn("Outputs", 0, 25, 0, 2)
+%assign tlcOutputsFcnOfS0B26 = OpaqueTLCBlockFcn("Outputs", 0, 26, 0, 2)
+%assign tlcOutputsFcnOfS0B27 = OpaqueTLCBlockFcn("Outputs", 0, 27, 0, 2)
+%assign tlcOutputsFcnOfS0B28 = OpaqueTLCBlockFcn("Outputs", 0, 28, 0, 2)
+/* Step: '<S2>/DX' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.DX_Time) {
+    simLQR_B.DX = simLQR_P.DX_Y0;
+} else {
+    simLQR_B.DX = simLQR_P.DX_YFinal;
+}
+/* End of Step: '<S2>/DX' */
+
+/* Step: '<S2>/DY' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.DY_Time) {
+    simLQR_B.DY = simLQR_P.DY_Y0;
+} else {
+    simLQR_B.DY = simLQR_P.DY_YFinal;
+}
+/* End of Step: '<S2>/DY' */
+
+/* Step: '<S2>/DZ' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.DZ_Time) {
+    simLQR_B.DZ = simLQR_P.DZ_Y0;
+} else {
+    simLQR_B.DZ = simLQR_P.DZ_YFinal;
+}
+/* End of Step: '<S2>/DZ' */
+
+/* Step: '<S2>/Dphi' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.Dphi_Time) {
+    simLQR_B.Dphi = simLQR_P.Dphi_Y0;
+} else {
+    simLQR_B.Dphi = simLQR_P.Dphi_YFinal;
+}
+/* End of Step: '<S2>/Dphi' */
+if (%<(SLibCGIRIsSampleHit(1, 0))>) {
+%<tlcOutputsFcnOfS0B0>\
+}
+/* Step: '<S2>/Dtheta' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.Dtheta_Time) {
+    simLQR_B.Dtheta = simLQR_P.Dtheta_Y0;
+} else {
+    simLQR_B.Dtheta = simLQR_P.Dtheta_YFinal;
+}
+/* End of Step: '<S2>/Dtheta' */
+
+/* Step: '<S2>/Dpsi' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.Dpsi_Time) {
+    simLQR_B.Dpsi = simLQR_P.Dpsi_Y0;
+} else {
+    simLQR_B.Dpsi = simLQR_P.Dpsi_YFinal;
+}
+/* End of Step: '<S2>/Dpsi' */
+
+/* Step: '<S2>/DaR' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.DaR_Time) {
+    simLQR_B.DaR = simLQR_P.DaR_Y0;
+} else {
+    simLQR_B.DaR = simLQR_P.DaR_YFinal;
+}
+/* End of Step: '<S2>/DaR' */
+
+/* Step: '<S2>/DaL' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.DaL_Time) {
+    simLQR_B.DaL = simLQR_P.DaL_Y0;
+} else {
+    simLQR_B.DaL = simLQR_P.DaL_YFinal;
+}
+/* End of Step: '<S2>/DaL' */
+if (%<(SLibCGIRIsSampleHit(1, 0))>) {
+%<tlcOutputsFcnOfS0B1>\
+}
+/* Step: '<S4>/Xr' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.Xr_Time) {
+    rtb_Xr = simLQR_P.Xr_Y0;
+} else {
+    rtb_Xr = simLQR_P.Xr_YFinal;
+}
+/* End of Step: '<S4>/Xr' */
+
+/* Step: '<S4>/Yr' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.Yr_Time) {
+    rtb_Yr = simLQR_P.Yr_Y0;
+} else {
+    rtb_Yr = simLQR_P.Yr_YFinal;
+}
+/* End of Step: '<S4>/Yr' */
+
+/* Step: '<S4>/Zr' */
+currentTime = %<(SLibCG_SE(LibGetTaskTime(0)))>;
+if (currentTime < simLQR_P.Zr_Time) {
+    rtb_Zr = simLQR_P.Zr_Y0;
+} else {
+    rtb_Zr = simLQR_P.Zr_YFinal;
+}
+/* End of Step: '<S4>/Zr' */
+
+/* Step: '<S4>/Zr2' */
+rtb_Zr2 = simLQR_P.rolleq;
+/* Step: '<S4>/Zr1' */
+rtb_Zr1 = simLQR_P.pitcheq;
+%<tlcOutputsFcnOfS0B13>\
+/* Integrator: '<S3>/Integrator' */
+memcpy(&simLQR_B.Integrator[0], &simLQR_X.Integrator_CSTATE[0], sizeof(real_T) << 4U);
+if (%<(SLibCGIRIsSampleHit(1, 0))>) {
+    /* ZeroOrderHold: '<S1>/Zero-Order Hold1' */
+    memcpy(&simLQR_B.ZeroOrderHold1[0], &simLQR_B.Integrator[0], sizeof(real_T) << 4U);
+}
+/* Sum: '<S1>/Sum' incorporates:
+ *  Constant: '<S4>/aL'
+ *  Constant: '<S4>/aR'
+ *  Constant: '<S4>/dXr'
+ *  Constant: '<S4>/dYr'
+ *  Constant: '<S4>/dZr'
+ *  Constant: '<S4>/velocidades'
+ *  Constant: '<S4>/yaw'
+ */
+simLQR_B.Sum[0] = simLQR_B.ZeroOrderHold1[0] - rtb_Xr;
+simLQR_B.Sum[1] = simLQR_B.ZeroOrderHold1[1] - rtb_Yr;
+simLQR_B.Sum[2] = simLQR_B.ZeroOrderHold1[2] - rtb_Zr;
+simLQR_B.Sum[3] = simLQR_B.ZeroOrderHold1[3] - rtb_Zr2;
+simLQR_B.Sum[4] = simLQR_B.ZeroOrderHold1[4] - rtb_Zr1;
+simLQR_B.Sum[5] = simLQR_B.ZeroOrderHold1[5] - simLQR_P.yaw_Value;
+simLQR_B.Sum[6] = simLQR_B.ZeroOrderHold1[6] - simLQR_P.aReq;
+simLQR_B.Sum[7] = simLQR_B.ZeroOrderHold1[7] - simLQR_P.aLeq;
+simLQR_B.Sum[8] = simLQR_B.ZeroOrderHold1[8] - simLQR_P.dXr_Value;
+simLQR_B.Sum[9] = simLQR_B.ZeroOrderHold1[9] - simLQR_P.dYr_Value;
+simLQR_B.Sum[10] = simLQR_B.ZeroOrderHold1[10] - simLQR_P.dZr_Value;
+simLQR_B.Sum[11] = simLQR_B.ZeroOrderHold1[11] - simLQR_P.velocidades_Value;
+simLQR_B.Sum[12] = simLQR_B.ZeroOrderHold1[12] - simLQR_P.velocidades_Value;
+simLQR_B.Sum[13] = simLQR_B.ZeroOrderHold1[13] - simLQR_P.velocidades_Value;
+simLQR_B.Sum[14] = simLQR_B.ZeroOrderHold1[14] - simLQR_P.velocidades_Value;
+simLQR_B.Sum[15] = simLQR_B.ZeroOrderHold1[15] - simLQR_P.velocidades_Value;
+if (%<(SLibCGIRIsSampleHit(1, 0))>) {
+    /* DiscreteIntegrator: '<S1>/Discrete-Time Integrator' */
+    simLQR_B.DiscreteTimeIntegrator = simLQR_DW.DiscreteTimeIntegrator_DSTATE;
+    /* DiscreteIntegrator: '<S1>/Discrete-Time Integrator3' */
+    simLQR_B.DiscreteTimeIntegrator3 = simLQR_DW.DiscreteTimeIntegrator3_DSTATE;
+    /* DiscreteIntegrator: '<S1>/Discrete-Time Integrator2' */
+    simLQR_B.DiscreteTimeIntegrator2 = simLQR_DW.DiscreteTimeIntegrator2_DSTATE;
+    /* DiscreteIntegrator: '<S1>/Discrete-Time Integrator1' */
+    simLQR_B.DiscreteTimeIntegrator1 = simLQR_DW.DiscreteTimeIntegrator1_DSTATE;
+}
+/* SignalConversion: '<S1>/TmpSignal ConversionAtGainInport1' */
+memcpy(&tmp[0], &simLQR_B.Sum[0], sizeof(real_T) << 4U);
+tmp[16] = simLQR_B.DiscreteTimeIntegrator;
+tmp[17] = simLQR_B.DiscreteTimeIntegrator3;
+tmp[18] = simLQR_B.DiscreteTimeIntegrator2;
+tmp[19] = simLQR_B.DiscreteTimeIntegrator1;
+/* Gain: '<S1>/Gain' incorporates:
+ *  SignalConversion: '<S1>/TmpSignal ConversionAtGainInport1'
+ */
+for (i = 0; i < 20; i++) {
+    tmp_0[i << 2] = -simLQR_P.K[i << 2];
+    tmp_0[1 + (i << 2)] = -simLQR_P.K[(i << 2) + 1];
+    tmp_0[2 + (i << 2)] = -simLQR_P.K[(i << 2) + 2];
+    tmp_0[3 + (i << 2)] = -simLQR_P.K[(i << 2) + 3];
+}
+for (i = 0; i < 4; i++) {
+    simLQR_B.Gain[i] = 0.0;
+    for (i_0 = 0; i_0 < 20; i_0++) {
+        simLQR_B.Gain[i] += tmp_0[(i_0 << 2) + i] * tmp[i_0];
+    }
+}
+/* End of Gain: '<S1>/Gain' */
+
+/* Sum: '<S1>/Sum1' */
+simLQR_B.Sum1[0] = simLQR_B.Feedforward[0] + simLQR_B.Gain[0];
+simLQR_B.Sum1[1] = simLQR_B.Feedforward[1] + simLQR_B.Gain[1];
+simLQR_B.Sum1[2] = simLQR_B.Feedforward[2] + simLQR_B.Gain[2];
+simLQR_B.Sum1[3] = simLQR_B.Feedforward[3] + simLQR_B.Gain[3];
+if (%<(SLibCGIRIsSampleHit(1, 0))>) {
+    /* ZeroOrderHold: '<S1>/Zero-Order Hold' */
+    simLQR_B.ZeroOrderHold[0] = simLQR_B.Sum1[0];
+    simLQR_B.ZeroOrderHold[1] = simLQR_B.Sum1[1];
+    simLQR_B.ZeroOrderHold[2] = simLQR_B.Sum1[2];
+    simLQR_B.ZeroOrderHold[3] = simLQR_B.Sum1[3];
+%<tlcOutputsFcnOfS0B14>\
+%<tlcOutputsFcnOfS0B15>\
+%<tlcOutputsFcnOfS0B16>\
+%<tlcOutputsFcnOfS0B17>\
+%<tlcOutputsFcnOfS0B18>\
+%<tlcOutputsFcnOfS0B19>\
+    /* UnitDelay: '<S1>/Unit Delay1' */
+    simLQR_B.UnitDelay1[0] = simLQR_DW.UnitDelay1_DSTATE[0];
+    simLQR_B.UnitDelay1[1] = simLQR_DW.UnitDelay1_DSTATE[1];
+    simLQR_B.UnitDelay1[2] = simLQR_DW.UnitDelay1_DSTATE[2];
+    simLQR_B.UnitDelay1[3] = simLQR_DW.UnitDelay1_DSTATE[3];
+    /* UnitDelay: '<S1>/Unit Delay' */
+    memcpy(&simLQR_B.UnitDelay[0], &simLQR_DW.UnitDelay_DSTATE[0], 272U * sizeof(real_T));
+}
+%<tlcOutputsFcnOfS0B20>\
+if (%<(SLibCGIRIsSampleHit(1, 0))>) {
+%<tlcOutputsFcnOfS0B21>\
+}
+/* Sum: '<S1>/Sum4' incorporates:
+ *  Constant: '<S4>/aL'
+ *  Constant: '<S4>/aR'
+ *  Constant: '<S4>/dXr'
+ *  Constant: '<S4>/dYr'
+ *  Constant: '<S4>/dZr'
+ *  Constant: '<S4>/velocidades'
+ *  Constant: '<S4>/yaw'
+ */
+simLQR_B.Sum4[0] = rtb_Xr + simLQR_B.FK[0];
+simLQR_B.Sum4[1] = rtb_Yr + simLQR_B.FK[1];
+simLQR_B.Sum4[2] = rtb_Zr + simLQR_B.FK[2];
+simLQR_B.Sum4[3] = rtb_Zr2 + simLQR_B.FK[3];
+simLQR_B.Sum4[4] = rtb_Zr1 + simLQR_B.FK[4];
+simLQR_B.Sum4[5] = simLQR_P.yaw_Value + simLQR_B.FK[5];
+simLQR_B.Sum4[6] = simLQR_P.aReq + simLQR_B.FK[6];
+simLQR_B.Sum4[7] = simLQR_P.aLeq + simLQR_B.FK[7];
+simLQR_B.Sum4[8] = simLQR_P.dXr_Value + simLQR_B.FK[8];
+simLQR_B.Sum4[9] = simLQR_P.dYr_Value + simLQR_B.FK[9];
+simLQR_B.Sum4[10] = simLQR_P.dZr_Value + simLQR_B.FK[10];
+simLQR_B.Sum4[11] = simLQR_P.velocidades_Value + simLQR_B.FK[11];
+simLQR_B.Sum4[12] = simLQR_P.velocidades_Value + simLQR_B.FK[12];
+simLQR_B.Sum4[13] = simLQR_P.velocidades_Value + simLQR_B.FK[13];
+simLQR_B.Sum4[14] = simLQR_P.velocidades_Value + simLQR_B.FK[14];
+simLQR_B.Sum4[15] = simLQR_P.velocidades_Value + simLQR_B.FK[15];
+if (%<(SLibCGIRIsSampleHit(1, 0))>) {
+%<tlcOutputsFcnOfS0B22>\
+%<tlcOutputsFcnOfS0B23>\
+%<tlcOutputsFcnOfS0B24>\
+%<tlcOutputsFcnOfS0B25>\
+%<tlcOutputsFcnOfS0B26>\
+%<tlcOutputsFcnOfS0B27>\
+}
+%<tlcOutputsFcnOfS0B28>\
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 2, fcnProtoType)>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction

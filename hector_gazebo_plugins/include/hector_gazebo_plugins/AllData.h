@@ -25,9 +25,13 @@ using namespace log4cxx::helpers;
 namespace gazebo
 {
 	//LoggerPtr loggerMyMain(Logger::getLogger( "main"));	
-
+	
 	class AllData : public ModelPlugin
 	{
+
+		std::fstream out;
+		time_t  timev;
+
 		public: AllData(); 
   		public:virtual ~AllData(); 
 		public:virtual void Load(physics::ModelPtr _model, sdf::ElementPtr _sdf); 

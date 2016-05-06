@@ -1,0 +1,45 @@
+%implements s0_b0_bg82d_Start "C"
+
+%function Start(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcStartFcnOfS0B0 = OpaqueTLCBlockFcn("Start", 0, 0, 0, 0)
+%assign tlcStartFcnOfS0B1 = OpaqueTLCBlockFcn("Start", 0, 1, 0, 0)
+%assign tlcStartFcnOfS0B14 = OpaqueTLCBlockFcn("Start", 0, 14, 0, 0)
+%assign tlcStartFcnOfS0B15 = OpaqueTLCBlockFcn("Start", 0, 15, 0, 0)
+%assign tlcStartFcnOfS0B16 = OpaqueTLCBlockFcn("Start", 0, 16, 0, 0)
+%assign tlcStartFcnOfS0B17 = OpaqueTLCBlockFcn("Start", 0, 17, 0, 0)
+%assign tlcStartFcnOfS0B18 = OpaqueTLCBlockFcn("Start", 0, 18, 0, 0)
+%assign tlcStartFcnOfS0B19 = OpaqueTLCBlockFcn("Start", 0, 19, 0, 0)
+%assign tlcStartFcnOfS0B21 = OpaqueTLCBlockFcn("Start", 0, 21, 0, 0)
+%assign tlcStartFcnOfS0B22 = OpaqueTLCBlockFcn("Start", 0, 22, 0, 0)
+%assign tlcStartFcnOfS0B23 = OpaqueTLCBlockFcn("Start", 0, 23, 0, 0)
+%assign tlcStartFcnOfS0B24 = OpaqueTLCBlockFcn("Start", 0, 24, 0, 0)
+%assign tlcStartFcnOfS0B25 = OpaqueTLCBlockFcn("Start", 0, 25, 0, 0)
+%assign tlcStartFcnOfS0B26 = OpaqueTLCBlockFcn("Start", 0, 26, 0, 0)
+%assign tlcStartFcnOfS0B27 = OpaqueTLCBlockFcn("Start", 0, 27, 0, 0)
+%<tlcStartFcnOfS0B0>\
+%<tlcStartFcnOfS0B1>\
+%<tlcStartFcnOfS0B14>\
+%<tlcStartFcnOfS0B15>\
+%<tlcStartFcnOfS0B16>\
+%<tlcStartFcnOfS0B17>\
+%<tlcStartFcnOfS0B18>\
+%<tlcStartFcnOfS0B19>\
+%<tlcStartFcnOfS0B21>\
+%<tlcStartFcnOfS0B22>\
+%<tlcStartFcnOfS0B23>\
+%<tlcStartFcnOfS0B24>\
+%<tlcStartFcnOfS0B25>\
+%<tlcStartFcnOfS0B26>\
+%<tlcStartFcnOfS0B27>\
+%closefile cfgTxt
+%<cfgTxt>
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Start(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 0, fcnProtoType)>
+%endfunction

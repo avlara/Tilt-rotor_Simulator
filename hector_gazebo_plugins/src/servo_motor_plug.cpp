@@ -151,6 +151,7 @@ namespace gazebo
 
 
 			if (_sdf->HasElement("Modo"))     Modo_ = _sdf->GetElement("Modo")->Get<std::string>(); 
+			std::cout << _sdf->GetElement("Modo")->Get<std::string>() << std::endl;
 
 			world = _model->GetWorld();	
 			junta = _model-> GetJoint(NameOfJoint_);

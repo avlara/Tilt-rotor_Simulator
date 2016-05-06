@@ -1671,3 +1671,11 @@
 2016-04-08 17:31:44,719 INFO  gazebo - I heard: [hello world ]
 2016-04-08 17:31:44,967 INFO  gazebo - I heard: [hello world ]
 2016-04-08 17:31:45,219 INFO  gazebo - I heard: [hello world ]
+2016-04-13 20:45:30,804 INFO  ros - waitForService: Service [/gazebo/set_physics_properties] is now available.
+2016-04-13 20:45:30,861 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-04-15 13:25:44,151 INFO  ros - waitForService: Service [/gazebo/set_physics_properties] is now available.
+2016-04-15 13:25:44,198 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-04-15 13:27:28,309 INFO  ros - waitForService: Service [/gazebo/set_physics_properties] is now available.
+2016-04-15 13:27:28,339 INFO  gazebo - Physics dynamic reconfigure ready.
+2016-04-15 13:37:09,863 INFO  ros - waitForService: Service [/gazebo/set_physics_properties] is now available.
+2016-04-15 13:37:09,902 INFO  gazebo - Physics dynamic reconfigure ready.

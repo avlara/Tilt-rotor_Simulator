@@ -1,0 +1,1992 @@
+%implements s0_b0_bg82d_TLCInterface "C"
+
+%function getInputAddr_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DX"
+%endfunction
+
+%function getInput_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DX"
+%endfunction
+
+%function getInputAddr_0_0_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DY"
+%endfunction
+
+%function getInput_0_0_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DY"
+%endfunction
+
+%function getInputAddr_0_0_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DZ"
+%endfunction
+
+%function getInput_0_0_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DZ"
+%endfunction
+
+%function getInputAddr_0_0_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dphi"
+%endfunction
+
+%function getInput_0_0_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dphi"
+%endfunction
+
+%function getDWorkAddr_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Pertubaes_PWORK"
+%endfunction
+
+%function getDWork_0_0_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Pertubaes_PWORK"
+%endfunction
+
+%function getInputAddr_0_1_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dtheta"
+%endfunction
+
+%function getInput_0_1_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dtheta"
+%endfunction
+
+%function getInputAddr_0_1_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dpsi"
+%endfunction
+
+%function getInput_0_1_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dpsi"
+%endfunction
+
+%function getInputAddr_0_1_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DaR"
+%endfunction
+
+%function getInput_0_1_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DaR"
+%endfunction
+
+%function getInputAddr_0_1_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DaL"
+%endfunction
+
+%function getInput_0_1_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DaL"
+%endfunction
+
+%function getDWorkAddr_0_1_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Pertubaes2_PWORK"
+%endfunction
+
+%function getDWork_0_1_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Pertubaes2_PWORK"
+%endfunction
+
+%function getInputAddr_0_14_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_14_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_14_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_14_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_14_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_14_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_14_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_14_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_14_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Sinaisdecontrole_PWORK"
+%endfunction
+
+%function getDWork_0_14_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Sinaisdecontrole_PWORK"
+%endfunction
+
+%function getInputAddr_0_15_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_15_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_15_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_15_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_15_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_15_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_15_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_15_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_15_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.VariavelManipulada1_PWORK"
+%endfunction
+
+%function getDWork_0_15_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.VariavelManipulada1_PWORK"
+%endfunction
+
+%function getInputAddr_0_16_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_16_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_16_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_16_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_16_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_16_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_16_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_16_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_16_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.VariavelManipulada2_PWORK"
+%endfunction
+
+%function getDWork_0_16_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.VariavelManipulada2_PWORK"
+%endfunction
+
+%function getInputAddr_0_17_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_17_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_17_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_17_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_17_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_17_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_17_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_17_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_17_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.VariavelManipulada3_PWORK"
+%endfunction
+
+%function getDWork_0_17_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.VariavelManipulada3_PWORK"
+%endfunction
+
+%function getInputAddr_0_18_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_18_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_18_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_18_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_18_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_18_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_18_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_18_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_18_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.VariavelManipulada4_PWORK"
+%endfunction
+
+%function getDWork_0_18_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.VariavelManipulada4_PWORK"
+%endfunction
+
+%function getInputAddr_0_19_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_0_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_0_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_0_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_0_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_0_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_0_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_0_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_0_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_19_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope1_PWORK"
+%endfunction
+
+%function getDWork_0_19_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope1_PWORK"
+%endfunction
+
+%function getInputAddr_0_21_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_21_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_21_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope2_PWORK"
+%endfunction
+
+%function getDWork_0_21_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope2_PWORK"
+%endfunction
+
+%function getInputAddr_0_22_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum4" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_22_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum4" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_22_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope3_PWORK"
+%endfunction
+
+%function getDWork_0_22_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope3_PWORK"
+%endfunction
+
+%function getInputAddr_0_23_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_0_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_0_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_0_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_0_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_0_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_0_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_0_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_0_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_23_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope4_PWORK"
+%endfunction
+
+%function getDWork_0_23_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope4_PWORK"
+%endfunction
+
+%function getInputAddr_0_24_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_0_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_0_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_0_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_0_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_0_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_0_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_0_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_0_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_24_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope5_PWORK"
+%endfunction
+
+%function getDWork_0_24_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope5_PWORK"
+%endfunction
+
+%function getInputAddr_0_25_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_0_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_0_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_0_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_0_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_0_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_0_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_0_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_0_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_0_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_0_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_25_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope6_PWORK"
+%endfunction
+
+%function getDWork_0_25_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope6_PWORK"
+%endfunction
+
+%function getInputAddr_0_26_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Feedforward" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_26_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Feedforward" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_26_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.ToWorkspace_PWORK"
+%endfunction
+
+%function getDWork_0_26_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.ToWorkspace_PWORK"
+%endfunction
+
+%function getDWorkAddr_0_27_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope7_PWORK"
+%endfunction
+
+%function getDWork_0_27_0_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope7_PWORK"
+%endfunction
+
+%function getInputAddr_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DX"
+%endfunction
+
+%function getInput_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DX"
+%endfunction
+
+%function getInputAddr_0_0_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DY"
+%endfunction
+
+%function getInput_0_0_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DY"
+%endfunction
+
+%function getInputAddr_0_0_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DZ"
+%endfunction
+
+%function getInput_0_0_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DZ"
+%endfunction
+
+%function getInputAddr_0_0_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dphi"
+%endfunction
+
+%function getInput_0_0_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dphi"
+%endfunction
+
+%function getDWorkAddr_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Pertubaes_PWORK"
+%endfunction
+
+%function getDWork_0_0_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Pertubaes_PWORK"
+%endfunction
+
+%function getInputAddr_0_1_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dtheta"
+%endfunction
+
+%function getInput_0_1_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dtheta"
+%endfunction
+
+%function getInputAddr_0_1_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dpsi"
+%endfunction
+
+%function getInput_0_1_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dpsi"
+%endfunction
+
+%function getInputAddr_0_1_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DaR"
+%endfunction
+
+%function getInput_0_1_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DaR"
+%endfunction
+
+%function getInputAddr_0_1_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DaL"
+%endfunction
+
+%function getInput_0_1_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DaL"
+%endfunction
+
+%function getDWorkAddr_0_1_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Pertubaes2_PWORK"
+%endfunction
+
+%function getDWork_0_1_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Pertubaes2_PWORK"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(0, 0)> %% rtb_Xr
+
+%return "&rtb_Xr"
+%endfunction
+
+%function getInput_0_13_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(0, 0)> %% rtb_Xr
+
+%return "rtb_Xr"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(1, 0)> %% rtb_Yr
+
+%return "&rtb_Yr"
+%endfunction
+
+%function getInput_0_13_0_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(1, 0)> %% rtb_Yr
+
+%return "rtb_Yr"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(2, 0)> %% rtb_Zr
+
+%return "&rtb_Zr"
+%endfunction
+
+%function getInput_0_13_0_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(2, 0)> %% rtb_Zr
+
+%return "rtb_Zr"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(3, 0)> %% rtb_Zr2
+
+%return "&rtb_Zr2"
+%endfunction
+
+%function getInput_0_13_0_2_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(3, 0)> %% rtb_Zr2
+
+%return "rtb_Zr2"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_4(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(4, 0)> %% rtb_Zr1
+
+%return "&rtb_Zr1"
+%endfunction
+
+%function getInput_0_13_0_2_0_4(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+%<SLibCGIRAccessLocalVar(4, 0)> %% rtb_Zr1
+
+%return "rtb_Zr1"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.yaw_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.yaw_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_6(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.aReq"
+%endfunction
+
+%function getInput_0_13_0_2_0_6(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.aReq"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.aLeq"
+%endfunction
+
+%function getInput_0_13_0_2_0_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.aLeq"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_8(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.dXr_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_8(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.dXr_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.dYr_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.dYr_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_10(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.dZr_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_10(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.dZr_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_11(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_12(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_12(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_13(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_14(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_14(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_15(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.velocidades_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_16(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.d2Xr_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_16(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.d2Xr_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.d2Yr_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_17(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.d2Yr_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_18(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.d2Zr_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_18(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.d2Zr_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_19(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_19(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_20(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_20(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_21(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_21(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_22(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_22(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInputAddr_0_13_0_2_0_23(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getInput_0_13_0_2_0_23(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_P.aceleraes_Value"
+%endfunction
+
+%function getOutputAddr_0_13_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Feedforward" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutput_0_13_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Feedforward" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_14_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_14_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_14_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_14_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_14_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_14_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_14_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_14_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_14_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Sinaisdecontrole_PWORK"
+%endfunction
+
+%function getDWork_0_14_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Sinaisdecontrole_PWORK"
+%endfunction
+
+%function getInputAddr_0_15_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_15_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_15_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_15_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_15_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_15_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_15_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_15_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_15_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.VariavelManipulada1_PWORK"
+%endfunction
+
+%function getDWork_0_15_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.VariavelManipulada1_PWORK"
+%endfunction
+
+%function getInputAddr_0_16_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_16_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_16_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_16_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_16_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_16_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_16_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_16_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_16_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.VariavelManipulada2_PWORK"
+%endfunction
+
+%function getDWork_0_16_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.VariavelManipulada2_PWORK"
+%endfunction
+
+%function getInputAddr_0_17_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_17_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_17_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_17_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_17_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_17_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_17_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_17_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_17_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.VariavelManipulada3_PWORK"
+%endfunction
+
+%function getDWork_0_17_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.VariavelManipulada3_PWORK"
+%endfunction
+
+%function getInputAddr_0_18_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_18_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_18_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_18_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_18_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_18_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_18_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_18_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_18_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.VariavelManipulada4_PWORK"
+%endfunction
+
+%function getDWork_0_18_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.VariavelManipulada4_PWORK"
+%endfunction
+
+%function getInputAddr_0_19_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_2_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_2_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_2_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_2_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_2_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_2_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_19_0_2_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_19_0_2_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_19_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope1_PWORK"
+%endfunction
+
+%function getDWork_0_19_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope1_PWORK"
+%endfunction
+
+%function getInputAddr_0_20_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_20_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_20_0_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.UnitDelay1" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_20_0_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.UnitDelay1" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_20_0_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.UnitDelay" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_20_0_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.UnitDelay" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutputAddr_0_20_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutput_0_20_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_21_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_21_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_21_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope2_PWORK"
+%endfunction
+
+%function getDWork_0_21_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope2_PWORK"
+%endfunction
+
+%function getInputAddr_0_22_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum4" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_22_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum4" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_22_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope3_PWORK"
+%endfunction
+
+%function getDWork_0_22_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope3_PWORK"
+%endfunction
+
+%function getInputAddr_0_23_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_2_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_2_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_2_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_2_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_2_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_2_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_23_0_2_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_23_0_2_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Sum" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_23_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope4_PWORK"
+%endfunction
+
+%function getDWork_0_23_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope4_PWORK"
+%endfunction
+
+%function getInputAddr_0_24_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_2_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_2_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_2_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_2_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_2_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_2_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_24_0_2_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_24_0_2_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_24_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope5_PWORK"
+%endfunction
+
+%function getDWork_0_24_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope5_PWORK"
+%endfunction
+
+%function getInputAddr_0_25_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_2_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_2_2_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_2_3_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_2_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_2_4_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_2_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_2_5_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_2_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_2_6_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_25_0_2_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_25_0_2_7_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.FK" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_25_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope6_PWORK"
+%endfunction
+
+%function getDWork_0_25_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope6_PWORK"
+%endfunction
+
+%function getInputAddr_0_26_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Feedforward" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_26_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Feedforward" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_26_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.ToWorkspace_PWORK"
+%endfunction
+
+%function getDWork_0_26_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.ToWorkspace_PWORK"
+%endfunction
+
+%function getDWorkAddr_0_27_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.Scope7_PWORK"
+%endfunction
+
+%function getDWork_0_27_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.Scope7_PWORK"
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_28_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Integrator" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_28_0_2_0_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.ZeroOrderHold" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DX"
+%endfunction
+
+%function getInput_0_28_0_2_0_2(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DX"
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DY"
+%endfunction
+
+%function getInput_0_28_0_2_0_3(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DY"
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_4(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DZ"
+%endfunction
+
+%function getInput_0_28_0_2_0_4(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DZ"
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dphi"
+%endfunction
+
+%function getInput_0_28_0_2_0_5(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dphi"
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_6(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dtheta"
+%endfunction
+
+%function getInput_0_28_0_2_0_6(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dtheta"
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Dpsi"
+%endfunction
+
+%function getInput_0_28_0_2_0_7(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Dpsi"
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_8(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DaR"
+%endfunction
+
+%function getInput_0_28_0_2_0_8(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DaR"
+%endfunction
+
+%function getInputAddr_0_28_0_2_0_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.DaL"
+%endfunction
+
+%function getInput_0_28_0_2_0_9(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.DaL"
+%endfunction
+
+%function getOutputAddr_0_28_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.modelonolinear" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getOutput_0_28_0_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.modelonolinear" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_0_26_0_6_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_B.Feedforward" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_0_26_0_6_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_B.Feedforward" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_0_26_0_6_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&simLQR_DW.ToWorkspace_PWORK"
+%endfunction
+
+%function getDWork_0_26_0_6_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "simLQR_DW.ToWorkspace_PWORK"
+%endfunction
+

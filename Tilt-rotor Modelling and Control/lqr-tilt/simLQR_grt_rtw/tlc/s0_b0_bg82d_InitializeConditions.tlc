@@ -1,0 +1,35 @@
+%implements s0_b0_bg82d_InitializeConditions "C"
+
+%function InitializeConditions(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+/* InitializeConditions for Integrator: '<S3>/Integrator' */
+memcpy(&simLQR_X.Integrator_CSTATE[0], &simLQR_P.Integrator_IC[0], sizeof(real_T) << 4U);
+/* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator' */
+simLQR_DW.DiscreteTimeIntegrator_DSTATE = simLQR_P.DiscreteTimeIntegrator_IC;
+/* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator3' */
+simLQR_DW.DiscreteTimeIntegrator3_DSTATE = simLQR_P.DiscreteTimeIntegrator3_IC;
+/* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator2' */
+simLQR_DW.DiscreteTimeIntegrator2_DSTATE = simLQR_P.DiscreteTimeIntegrator2_IC;
+/* InitializeConditions for DiscreteIntegrator: '<S1>/Discrete-Time Integrator1' */
+simLQR_DW.DiscreteTimeIntegrator1_DSTATE = simLQR_P.DiscreteTimeIntegrator1_IC;
+/* InitializeConditions for UnitDelay: '<S1>/Unit Delay1' */
+simLQR_DW.UnitDelay1_DSTATE[0] = simLQR_P.UnitDelay1_InitialCondition[0];
+simLQR_DW.UnitDelay1_DSTATE[1] = simLQR_P.UnitDelay1_InitialCondition[1];
+simLQR_DW.UnitDelay1_DSTATE[2] = simLQR_P.UnitDelay1_InitialCondition[2];
+simLQR_DW.UnitDelay1_DSTATE[3] = simLQR_P.UnitDelay1_InitialCondition[3];
+/* InitializeConditions for UnitDelay: '<S1>/Unit Delay' */
+memcpy(&simLQR_DW.UnitDelay_DSTATE[0], &simLQR_P.InitialValue[0], 272U * sizeof(real_T));
+%<SLibInsertInitPeriodicCStatesFcn(system)>
+%closefile cfgTxt
+%<cfgTxt>
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void InitializeConditions(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 1, fcnProtoType)>
+%endfunction

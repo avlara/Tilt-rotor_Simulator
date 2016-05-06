@@ -1,9 +1,12 @@
 #include <hector_gazebo_plugins/AllData.h>
 
+
 namespace gazebo
 {
 	AllData::AllData()
 	{ 
+		out.open ("/home/macro/catkin_ws/src/Tilt-rotor_Simulator/tilt_controller/outputPlugin.txt", std::fstream::out | std::fstream::app);
+
 		/*try
 		{
 			path = ros::package::getPath("hector_gazebo_plugins");
@@ -20,6 +23,7 @@ namespace gazebo
 	{	
 		try
 		{
+			out.close();
 			updateTimer.Disconnect(updateConnection);
 			ros::shutdown();
 		}
@@ -52,7 +56,7 @@ namespace gazebo
 			else {  std::cout << "Coloque o nome da Junta: <NameOfJointR> x </NameOfJointR>" << std::endl;
 				return;}
 
-			if (_sdf->HasElement("NameOfJointL")) { NameOfJointL_ = _sdf->GetElement("NameOfJointR")->Get<std::string>();}
+			if (_sdf->HasElement("NameOfJointL")) { NameOfJointL_ = _sdf->GetElement("NameOfJointL")->Get<std::string>();}
 			else {  std::cout << "Coloque o nome da Junta: <NameOfJointL> x </NameOfJointL>" << std::endl;
 				return;}
 
@@ -99,6 +103,7 @@ namespace gazebo
 			common::Time sim_time = world->GetSimTime();
 			boost::mutex::scoped_lock scoped_lock(lock);
 			X.header.stamp = ros::Time(sim_time.sec, sim_time.nsec);
+			
 			X.aR = juntaR->GetAngle(0).Radian();
 			X.daR = juntaR->GetVelocity(0); 
 			X.aL = juntaL->GetAngle(0).Radian();
@@ -111,15 +116,31 @@ namespace gazebo
 			X.p = pose.rot.GetAsEuler( ).y;
 			X.yaw = pose.rot.GetAsEuler( ).z;
 			math::Vector3 linear = link->GetWorldLinearVel();
-			X.vx = linear.x;
-			X.vy = linear.y;
-			X.vz = linear.z;
+
+			/*
+				[ 1, (sin(phi)*sin(theta))/cos(theta), (cos(phi)*sin(theta))/cos(theta)]
+				[ 0,                         cos(phi),                        -sin(phi)]
+				[ 0,              sin(phi)/cos(theta),              cos(phi)/cos(theta)]
+		
+
+			*/
+
+			X.vx = linear.x*(1) + linear.y*((sin(X.r)*sin(X.p))/cos(X.p)) + linear.z*((cos(X.r)*sin(X.p))/cos(X.p));
+			X.vy = linear.x*(0) + linear.y*(cos(X.r)) + linear.z*(-sin(X.r));
+			X.vz = linear.x*(0) + linear.y*(sin(X.r)/cos(X.p)) + linear.z*(cos(X.r)/cos(X.p));
 			math::Vector3 angular = link->GetWorldAngularVel( );
 			X.dr = angular.x;
 			X.dp = angular.y;
 			X.dyaw = angular.z;	
 			publisher_.publish(X);
 			
+			time(&timev);
+			struct tm * timeinfo;
+			timeinfo = localtime (&timev);
+
+			out << asctime(timeinfo) << std::endl;
+			
+
 		
 		}
 		catch(std::exception& e)

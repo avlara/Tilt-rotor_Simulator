@@ -4,8 +4,8 @@ namespace gazebo
 {
         void ServoMotorPlugin::CallbackReferencias(tilt_srv::Ref msg)
 	{
-		//refvalue = msg.ref;
-		//std::cout << refvalue<< std::endl;
+		refvalue = msg.ref;
+		std::cout << refvalue<< std::endl;
 	}
 
 	float ServoMotorPlugin::position_controller(float r, float y)
@@ -151,6 +151,7 @@ namespace gazebo
 
 
 			if (_sdf->HasElement("Modo"))     Modo_ = _sdf->GetElement("Modo")->Get<std::string>(); 
+			std::cout << _sdf->GetElement("Modo")->Get<std::string>() << std::endl;
 
 			world = _model->GetWorld();	
 			junta = _model-> GetJoint(NameOfJoint_);
@@ -202,6 +203,8 @@ namespace gazebo
 			}
 			else if (Modo_ == "Torque")
 			{
+				std::cout<<"Torque" << std::endl;
+				std::cout<< refvalue << std::endl;
 				torque = refvalue;
 				junta->SetForce(0,torque);
 			}

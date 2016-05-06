@@ -36,7 +36,7 @@ static const double excentrity2 = 2*flattening - flattening*flattening;
 
 // default reference position
 static const double DEFAULT_REFERENCE_LATITUDE  = 49.9;
-static const double DEFAULT_REFERENCE_LONGITUDE = 8.9;
+static const double DEFAULT_REFERENCE_LONGITUDE = 8.9
 static const double DEFAULT_REFERENCE_HEADING   = 0.0;
 static const double DEFAULT_REFERENCE_ALTITUDE  = 0.0;
 
@@ -95,7 +95,7 @@ namespace gazebo
   			}
   			if (!link)
   			{
-    				LOG4CXX_ERROR(loggerMyMain,"GazeboRosGps plugin error: bodyName: "+ link_name_.c_str() +" does not exist\n");
+    				LOG4CXX_ERROR(loggerMyMain,"GazeboRosGps plugin error: bodyName: "+ link_name_ +" does not exist\n");
     				return;
   			}
   			// default parameters

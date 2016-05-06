@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <csignal>
 #include <sys/time.h>
 #include "ros/ros.h"
@@ -10,6 +11,11 @@
 #include "tilt_srv/Ref.h"
 #include "tilt_srv/States.h"
 #include "std_msgs/String.h"
+#include<Eigen/Eigen>
+#include <boost/thread.hpp>
+
+using namespace Eigen;
+
 
 // variáveis globais
 struct sigaction sa;
@@ -56,98 +62,106 @@ ros::Subscriber X_sub;
 
 tilt_srv::States msg2;
 
+VectorXd Xref(16);
+VectorXd Input(4);
+MatrixXd K(4,16);
+
+std::fstream out;
+std::fstream in;
+
 void X_Callback(tilt_srv::States msg)
 {
-	//std::cout << msg.header << std::endl;
-	msg2 = msg;
-}
-
-// temporização
-void timer_handler (int signum)
-{
 	// lendo sensores	
-	/*if (!imu.call(values_imu)) ROS_ERROR("Failed to call service IMU");
-	if (!gps_fix.call(values_fix_gps)) ROS_ERROR("Failed to call service fix GPS");
-	if (!gps_velocity.call(values_velocity_gps)) ROS_ERROR("Failed to call service velocity GPS");
-	if (!magnetic.call(values_magnetic)) ROS_ERROR("Failed to call service magnetic");
-	if (!sonar.call(values_sonar)) ROS_ERROR("Failed to call service sonar");
-	if (!servo_esq_srv.call(values_servo_esq)) ROS_ERROR("Failed to call service servo dir");
-	if (!servo_dir_srv.call(values_servo_dir)) ROS_ERROR("Failed to call service servo left");
-	if (!thrust_esq_srv.call(values_thrust_esq)) ROS_ERROR("Failed to call service thrust left");
-	if (!thrust_dir_srv.call(values_thrust_dir)) ROS_ERROR("Failed to call service thrusr dir");*/
-	std::cout << msg2.header << std::endl;
+	VectorXd X(16);	
+	out<<   msg.header.seq << ","<<
+		msg.x << ","<<
+		msg.y <<","<< 
+		msg.z <<","<< 
+		msg.r<< ","<<
+		msg.p<< ","<<
+		msg.yaw<< ","<<
+		msg.aR<< ","<<
+		msg.aL<< ","<<
+		msg.vx<< ","<<
+		msg.vy<< ","<<
+		msg.vz<< ","<<
+		msg.dr<< ","<<
+		msg.dp<< ","<<
+		msg.dyaw<< ","<<
+		msg.daR<< ","<<
+		msg.daL << std::endl;
 	
-	// controlador + filtro
- 	/*thrustdir.ref = 40;
-	thrustesq.ref = 40;
+	X << msg.x,msg.y,msg.z,msg.r,msg.p,msg.yaw,msg.aR,msg.aL,msg.vx,msg.vy,msg.vz,msg.dr,msg.dp,msg.dyaw,msg.daR,msg.daL;
+
+	// Controlador Linear
+	Input = -K*(X-Xref); 
+
+ 	thrustdir.ref = Input(0); //+ 7.742354911319124;
+	thrustesq.ref = Input(1); //+ 7.452125992789735;
+	servodir.ref = Input(2) + 0;
+	servoesq.ref = Input(3) + 0;
+
+	/*thrustdir.ref = 0;
+	thrustesq.ref = 0;
 	servodir.ref = 0;
 	servoesq.ref = 0;*/	
+	
+	in <<   msg2.header.seq << ","<<
+		thrustdir.ref << ","<<
+		thrustesq.ref << ","<<
+		servodir.ref << ","<<
+		servoesq.ref << std::endl;
 
 	// Atuadores
-	/*thrustdir_pub.publish(thrustdir);
+	thrustdir_pub.publish(thrustdir);
 	thrustesq_pub.publish(thrustesq);
 	servodir_pub.publish(servodir);
-	servoesq_pub.publish(servoesq);*/
+	servoesq_pub.publish(servoesq);
+
+	// Comando para passo de simulação
 	std_msgs::String msgpub;
     	std::stringstream ss;
-    	ss << "hello world " ;
+    	ss << "GO" ;
     	msgpub.data = ss.str();
 	Step_pub.publish(msgpub);
-	//std::cout << "Entrei" <<  std::endl;	
-}
-
-void SetSampleTime(int n) // em ms
-{
-	memset (&sa, 0, sizeof (sa));
-	sa.sa_handler = &timer_handler;
-	sigaction (SIGVTALRM, &sa, NULL);
-
-	/* Configure the timer to expire after 250 msec... */
-	timer.it_value.tv_sec = 0;
-	timer.it_value.tv_usec = n*1000;
-	/* ... and every 250 msec after that. */
-	timer.it_interval.tv_sec = 0;
-	timer.it_interval.tv_usec = n*1000;
-	/* Start a virtual timer. It counts down whenever this process is executing. */
-	setitimer (ITIMER_VIRTUAL, &timer, NULL);
 }
 
 int main (int argc, char **argv)
 {
+	out.open ("/home/macro/catkin_ws/src/Tilt-rotor_Simulator/tilt_controller/output.txt", std::fstream::out | std::fstream::app);
+	in.open ("/home/macro/catkin_ws/src/Tilt-rotor_Simulator/tilt_controller/input.txt", std::fstream::out | std::fstream::app);
+  	
+	Xref << 0,0,0,-0.000155986,-0.0173469,0,0.017397000000000,0.017165300000000,0,0,0,0,0,0,0,0;
+
+/*Primeira linha*/
+K << 0.001061208112855,   3.095220631112246,   3.560259191233044, -10.729863657434219,   0.015774842413909,  0.806485610663944 ,  0.078999674488821,  -0.078665607273218,   0.001761121390644,   2.692819022376055,  2.775554316556502,  -1.776711096494242 ,  0.009189511990119 ,  0.167417958317943 ,  0.000387922564067 , -0.000386956237561 , 
+
+/*Segunda linha*/
+0.000382677066972 , -3.084474523110329 ,  3.572734418588530 , 10.697582615095177 ,  0.014038859249674 , -0.803603125457992,  -0.078433125970031 ,  0.078662281974900 ,  0.001262669612252 , -2.683823938441937 , 2.785587425683395  , 1.774026438197887  , 0.008976607359441 , -0.166818523401276 , -0.000385315158708 , 0.000386751979629,
+
+/*Terceira linha*/
+0.025448410051929 , -0.002296600329527 , -0.000005342627583 ,  0.009643830908894 ,  0.096259656009916  , 0.080682747951477  , 0.292143235857104  , 0.004770179053811 ,  0.023059684955404 , -0.002191018705070 , 0.000002062445698 ,  0.002012182664739 ,  0.017664775520566 ,  0.023708420892481 ,  0.007670512402321 ,  0.000131179127006, 
+
+/*Quarta linha*/
+0.025502593704066 ,  0.002285851917801 , -0.000005147036032 , -0.009594110894782 ,  0.096443902991815 , -0.080478046615840 ,  0.004819275689272 ,  0.292403136560160 ,  0.023108709249397  ,  0.002180242417387 ,  0.000002014740003 , -0.002001060387771 ,  0.017684500426855 , -0.023648191787312 ,  0.000131725190320  ,  0.007672528576484;
+
 	// declarando nó
 	ros::init(argc, argv, "tilt_controller");
 	ros::NodeHandle n;
 	
-	// declarando clientes
-	/*imu = n.serviceClient<tilt_srv::Imu_srv>("ValoresIMU");
-	gps_fix = n.serviceClient<tilt_srv::NavSatFix_srv>("FixGPS");
-	gps_velocity = n.serviceClient<tilt_srv::Vector3Stamped_srv>("VelocityGPS");
-	magnetic = n.serviceClient<tilt_srv::Vector3Stamped_srv>("ValoresMagnetometro");
-	sonar = n.serviceClient<tilt_srv::Range_srv>("ValoresSonar");
-	servo_esq_srv = n.serviceClient<tilt_srv::Sensor_srv>("/Tilt/SensoraL/ValoresMotores");
-	servo_dir_srv = n.serviceClient<tilt_srv::Sensor_srv>("/Tilt/SensoraR/ValoresMotores");
-	thrust_esq_srv = n.serviceClient<tilt_srv::Sensor_srv>("/Tilt/SensorThrustesq/ValoresMotores");
-	thrust_dir_srv = n.serviceClient<tilt_srv::Sensor_srv>("/Tilt/SensorThrustdir/ValoresMotores");*/
-
 	// declarando publicadores
-	/*thrustdir_pub = n.advertise<tilt_srv::Ref>("/Tilt/RefThrustdir", 10);
+	thrustdir_pub = n.advertise<tilt_srv::Ref>("/Tilt/RefThrustdir", 10);
 	thrustesq_pub = n.advertise<tilt_srv::Ref>("/Tilt/RefThrustesq", 10);
 	servodir_pub = n.advertise<tilt_srv::Ref>("/Tilt/RefaL", 10);
-	servoesq_pub = n.advertise<tilt_srv::Ref>("/Tilt/RefaR", 10);*/	
+	servoesq_pub = n.advertise<tilt_srv::Ref>("/Tilt/RefaR", 10);
 	Step_pub = n.advertise<std_msgs::String>("Step", 1);	
 
 	// declarando subscribers
-	//ros::Subscriber sub = n.subscribe("/Tilt/Teste", 1, X_Callback);
 	ros::Subscriber sub = n.subscribe("/Tilt/Teste", 1, X_Callback);
 
-	// configurando período de amostragem
-	SetSampleTime(250);
+	ros::spin();
 	
-	// controlador funciona enquanto o usuário não pressionar a tecla ENTER
-	while(true)
-	{
-	    ros::spinOnce();
-	}
-
+	out.close();
+	in.close();	
 	return 0;
 }

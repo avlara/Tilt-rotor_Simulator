@@ -42,8 +42,8 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>
   <run_depend>roscpp</run_depend>
-  <build_depend>tilt_srv</build_depend>
-  <run_depend>tilt_srv</run_depend>
+  <build_depend>cmake_modules</build_depend>
+  <run_depend>cmake_modules</run_depend> 
 
 
   <!-- The export tag contains other, unspecified, tags -->

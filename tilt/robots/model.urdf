@@ -4,17 +4,17 @@
     name="corpo">
     <inertial>
       <origin
-        xyz="0.00256429700632625 -0.00177063953172816 -0.0184675483937402"
+        xyz="-0.00178550564624431 0.000466514809170893 0.0275264262167568"
         rpy="0 0 0" />
       <mass
-        value="1.908310289141" />
+        value="1.92834614495378" />
       <inertia
-        ixx="0.0684037032869774"
-        ixy="5.36618171598915E-05"
-        ixz="-0.000361771022313387"
-        iyy="0.00789097264105409"
-        iyz="-0.000218363389363015"
-        izz="0.0650790672422852" />
+        ixx="0.0700559603485899"
+        ixy="4.81171313278652E-05"
+        ixz="-0.000363018580013146"
+        iyy="0.0079454505923938"
+        iyz="1.07744164658085E-05"
+        izz="0.0666837547078567" />
     </inertial>
     <visual>
       <origin
@@ -27,7 +27,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -41,136 +41,20 @@
     </collision>
   </link>
   <link
-    name="servodir">
-    <inertial>
-      <origin
-        xyz="-1.64500973065911E-05 -0.000256941591331994 0.0561664766143311"
-        rpy="0 0 0" />
-      <mass
-        value="0.0713136390603168" />
-      <inertia
-        ixx="3.14771600689694E-05"
-        ixy="1.2649483825246E-09"
-        ixz="-4.92425079055472E-09"
-        iyy="3.02767255246939E-05"
-        iyz="6.44165288529201E-07"
-        izz="1.44224289717711E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://tilt/meshes/servodir.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
-      </material>
-    </visual>
-    <!--<collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://tilt/meshes/servodir.STL" />
-      </geometry>
-    </collision>-->
-  </link>
-  <joint
-    name="aR"
-    type="revolute">
-    <origin
-      xyz="-1.8271804286945E-05 -0.277611425055307 0.0549286993075094"
-      rpy="-0.0261799241453877 0.000147944076641961 9.98008905062241E-05" />
-    <parent
-      link="corpo" />
-    <child
-      link="servodir" />
-    <axis
-      xyz="-9.98351002423385E-05 -0.999999995016477 0" />
-    <limit
-      lower="-1"
-      upper="1"
-      effort="10"
-      velocity="10" />
-  </joint>
-  <link
-    name="helicedir">
-    <inertial>
-      <origin
-        xyz="-4.0634359135816E-07 6.58528663266544E-08 3.43719603196346E-07"
-        rpy="0 0 0" />
-      <mass
-        value="0.00963319741474509" />
-      <inertia
-        ixx="1.308397044181E-06"
-        ixy="-8.47880273863235E-06"
-        ixz="1.9877604516713E-08"
-        iyy="6.74789344924412E-05"
-        iyz="-2.50764833601657E-09"
-        izz="6.8755269236743E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://tilt/meshes/helicedir.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0 0 0.501960784313725 1" />
-      </material>
-    </visual>
-    <!--<collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://tilt/meshes/helicedir.STL" />
-      </geometry>
-    </collision>-->
-  </link>
-  <joint
-    name="thrustdir"
-    type="continuous">
-    <origin
-      xyz="-2.45642483141821E-05 0 0.0839999964083198"
-      rpy="3.46944695195361E-18 -8.67361737988404E-19 0.144577399017787" />
-    <parent
-      link="servodir" />
-    <child
-      link="helicedir" />
-    <axis
-      xyz="-0.000289376348141932 4.21607435364194E-05 0.9999999572419" />
-    <limit
-      lower="-1"
-      upper="1"
-      effort="10"
-      velocity="10" />
-  </joint>
-  <link
     name="servoesq">
     <inertial>
       <origin
-        xyz="-2.82612327927832E-08 0.000256943227470385 0.0561664790038414"
+        xyz="-1.60574354333975E-09 0.000256950433774827 0.0561664973151414"
         rpy="0 0 0" />
       <mass
-        value="0.0713136390866666" />
+        value="0.071313642110537" />
       <inertia
-        ixx="3.1477162082576E-05"
-        ixy="1.20327524589434E-09"
-        ixz="7.10577313122764E-11"
-        iyy="3.02767250419788E-05"
-        iyz="-6.44164425496491E-07"
-        izz="1.44224275166197E-05" />
+        ixx="3.1477131317969E-05"
+        ixy="1.33384791633858E-09"
+        ixz="1.88188479012321E-13"
+        iyy="3.02766998172739E-05"
+        iyz="-6.44185191645591E-07"
+        izz="1.44224275665651E-05" />
     </inertial>
     <visual>
       <origin
@@ -183,7 +67,7 @@
       <material
         name="">
         <color
-          rgba="0.647058823529412 0.619607843137255 0.588235294117647 1" />
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
       </material>
     </visual>
     <!--<collision>
@@ -200,17 +84,17 @@
     name="aL"
     type="revolute">
     <origin
-      xyz="0.000774317061806635 0.277601419719204 0.0549353011331433"
-      rpy="0.0264243899580086 -0.000142465393102244 -0.000108408934057588" />
+      xyz="-0.00355649276858555 0.278215496595548 0.100523302768374"
+      rpy="0.0261844653212001 -0.0185928637494992 -0.000483121778388988" />
     <parent
       link="corpo" />
     <child
       link="servoesq" />
     <axis
-      xyz="-0.000108446791897333 0.999999994119647 0" />
+      xyz="0 0.999999999985527 0" />
     <limit
-      lower="-1"
-      upper="1"
+      lower="-6"
+      upper="6"
       effort="10"
       velocity="10" />
   </joint>
@@ -218,17 +102,17 @@
     name="heliceesq">
     <inertial>
       <origin
-        xyz="-4.03612904903428E-07 -5.57232281428455E-08 3.43842413264017E-07"
+        xyz="-2.97080082078353E-07 -1.52559642696559E-08 0.0840004582128408"
         rpy="0 0 0" />
       <mass
-        value="0.00963319729836474" />
+        value="0.00963022071477903" />
       <inertia
-        ixx="2.27163710542979E-06"
-        ixy="1.160606543528E-05"
-        ixz="3.54072262575423E-12"
-        iyy="6.65156885018562E-05"
-        iyz="9.15946817171114E-13"
-        izz="6.87552750096705E-05" />
+        ixx="2.64457172832474E-07"
+        ixy="1.31373492851671E-06"
+        ixz="6.06905473716744E-11"
+        iyy="6.85205614800688E-05"
+        iyz="3.53879230066552E-12"
+        izz="6.87529820553705E-05" />
     </inertial>
     <visual>
       <origin
@@ -255,27 +139,131 @@
     </collision>-->
   </link>
   <joint
-    name="thrustesq"
+    name="thurstesq"
     type="continuous">
     <origin
-      xyz="0 0 0.0840000000000002"
-      rpy="-3.33066907387547E-16 9.873178663522E-15 -0.154008614760551" />
+      xyz="0 0 0"
+      rpy="3.46944695195361E-18 -3.46944695195361E-18 -1.0842021724855E-19" />
     <parent
       link="servoesq" />
     <child
       link="heliceesq" />
     <axis
       xyz="0 0 1" />
+  </joint>
+  <link
+    name="servodir">
+    <inertial>
+      <origin
+        xyz="-7.78071906854841E-05 -0.000336137262099523 0.0562769139310356"
+        rpy="0 0 0" />
+      <mass
+        value="0.0709329033977977" />
+      <inertia
+        ixx="3.1227909266214E-05"
+        ixy="-8.05238421134306E-08"
+        ixz="1.14139449013983E-07"
+        iyy="3.00303550561414E-05"
+        iyz="7.60349413894601E-07"
+        izz="1.42582944933191E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tilt/meshes/servodir.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.529411764705882 0.549019607843137 0.549019607843137 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tilt/meshes/servodir.STL" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint
+    name="aR"
+    type="revolute">
+    <origin
+      xyz="-0.00434908257730353 -0.277007353402455 0.100523186479296"
+      rpy="-0.0261800852026307 -0.0033472956926336 9.14579673019161E-05" />
+    <parent
+      link="corpo" />
+    <child
+      link="servodir" />
+    <axis
+      xyz="0 -0.999999999985527 0" />
     <limit
-      lower="-1"
-      upper="1"
+      lower="-6"
+      upper="6"
       effort="10"
       velocity="10" />
   </joint>
+  <link
+    name="helicedir">
+    <inertial>
+      <origin
+        xyz="2.74886094247216E-09 -5.15232301268043E-11 0.084000455518564"
+        rpy="0 0 0" />
+      <mass
+        value="0.00963033406162666" />
+      <inertia
+        ixx="7.75851122179106E-07"
+        ixy="6.0308571251668E-06"
+        ixz="2.02168085412147E-12"
+        iyy="6.80087601560707E-05"
+        iyz="3.84118734448097E-13"
+        izz="6.87525702816846E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tilt/meshes/helicedir.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0.501960784313725 1" />
+      </material>
+    </visual>
+    <!--<collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tilt/meshes/helicedir.STL" />
+      </geometry>
+    </collision>-->
+  </link>
+  <joint
+    name="thurstdir"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 1.35525271560688E-20" />
+    <parent
+      link="servodir" />
+    <child
+      link="helicedir" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
 
-
-	
-  	<gazebo>
+<gazebo>
 	    	<plugin name="quadrotor_imu_sim" filename="libhector_gazebo_ros_imu.so">
 	      		<updateRate>100.0</updateRate>
 	      		<bodyName>corpo</bodyName>
@@ -441,16 +429,6 @@
 	</gazebo>
 
 	<gazebo>
-		<plugin name="AllDatateste" filename="libAllData_plugin.so">
-			<NameOfNode> Tilt </NameOfNode>	
-			<NameOfJointR> aR </NameOfJointR>
-			<NameOfJointL> aL </NameOfJointL>
-			<bodyName>corpo</bodyName>
-		</plugin>
-	</gazebo>
-
-
-	<!--<gazebo>
 		<plugin name="propeller_direito" filename="libaerodinamica_plugin.so">
 			<ka> 1 </ka>
 			<kb> 1 </kb>
@@ -460,6 +438,6 @@
 			<LinkDir> helicedir </LinkDir>
 			<LinkEsq> heliceesq </LinkEsq>					
     		</plugin>
-	</gazebo>-->
+	</gazebo>
 
 </robot>
