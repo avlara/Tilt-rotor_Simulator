@@ -12,3 +12,4 @@ Pacotes ROS
 - tilt -> é o pacote que possue diversos arquivos para a descrição do modelo mecânico do Tiltrotor obtido do SolidWorks (http://wiki.ros.org/sw_urdf_exporter acesso dia 24/12/2015)
 - sw_urdf_exporter -> funcionalidade adicional do SOlidwoks para exportar modelos CADs para modelos URDF
 
+This repository is outdated. The newest version of this software is in https://github.com/Guiraffo/ProVANT-Simulator
