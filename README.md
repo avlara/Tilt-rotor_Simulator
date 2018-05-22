@@ -1,5 +1,7 @@
 # Tilt-rotor_Simulator
 
+This repository is outdated. The newest version of this software is in https://github.com/Guiraffo/ProVANT-Simulator
+
 Este simulador está sendo desenvolvido dentro das atividades do projeto de pesquisa Provant UFMG/UFSC. Para tal utiliza-se o ambiente de simulação Gazebo sobre a plataforma ROS(Robotic Operating System). 
 
 O código nesse repositório consistitui atualmente do desenvolvimento de bibliotecas dinâmics, descrição do modelo de simulação e arquivos CAD.
@@ -12,4 +14,4 @@ Pacotes ROS
 - tilt -> é o pacote que possue diversos arquivos para a descrição do modelo mecânico do Tiltrotor obtido do SolidWorks (http://wiki.ros.org/sw_urdf_exporter acesso dia 24/12/2015)
 - sw_urdf_exporter -> funcionalidade adicional do SOlidwoks para exportar modelos CADs para modelos URDF
 
-This repository is outdated. The newest version of this software is in https://github.com/Guiraffo/ProVANT-Simulator
+
